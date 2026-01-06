@@ -100,7 +100,12 @@ def split_excel_to_csvs(excel_path, output_dir):
                                 print(f"Warning: Could not find image for '{title}' (tried: {[c + '.png' for c in candidates]})")
             
             # Global cleanup: Replace old repo path with root path in all string columns
+            # Using regex=True with a string pattern to match substrings
             df = df.replace(to_replace=r'/jovd83_github_page/', value='/', regex=True)
+            
+            # Double check specifically for image_url column if it exists
+            if 'image_url' in df.columns:
+                df['image_url'] = df['image_url'].astype(str).str.replace('/jovd83_github_page/', '/', regex=False)
 
             # Export to CSV
             df.to_csv(output_csv_path, index=False)
