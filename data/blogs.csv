@@ -1,12 +1,12 @@
 title,description,tags,link_primary,image_url,subcategory
-OpenAI Blog,Official research updates,[News],https://openai.com/blog,/jovd83_github_page/img/blogs/openai_blog.png,[News]
-Google AI Blog,The work we're doing to make AI helpful for everyone.,[News],https://blog.google/technology/ai/,/jovd83_github_page/img/blogs/google_ai_blog.png,[Research]
-Andrej Karpathy,Philosophical and intuitive understandings of neural networks,[Technical],https://karpathy.github.io/,/jovd83_github_page/img/blogs/andrej_karpathy.png,[Personal]
-Distill.pub,Machine Learning Research,[ML],https://distill.pub/,/jovd83_github_page/img/blogs/distill_pub.png,[Education]
-Towards Data Science,"Publish AI, ML & data-science insights to a global community of data professionals.",[DS],https://towardsdatascience.com/,/jovd83_github_page/img/blogs/towards_data_science.png,[Community]
-OpenAI research,"We believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Our mission is to ensure that AGI benefits all of humanity.",[Research],https://openai.com/research/,/jovd83_github_page/img/blogs/openai_research.png,[Research]
-Hugging Face blog,"The heartbeat of open-source AI. This is where you find out about new open-weight models (Llama, Mistral), optimization techniques (quantization, LoRA), and community trends.",,https://huggingface.co/blog,/jovd83_github_page/img/blogs/hugging_face_blog.png,
-Google DeepMind Blog,"Focuses heavily on AGI research, reinforcement learning, and AI for science (e.g., AlphaFold).",[Research],https://deepmind.google/blog/,/jovd83_github_page/img/blogs/google_deepmind_blog.png,[Research]
-BAIR,The best academic lab blog. It covers cutting-edge experimental research that often predicts where the industry will be in 6Ã¢â‚¬â€œ12 months.,[Research],https://bair.berkeley.edu/blog/,/jovd83_github_page/img/blogs/bair.png,[Research]
-Ahead of AI,"Practical, code-first explanations of modern AI architectures by Sebastan Rashka",[Technical],https://magazine.sebastianraschka.com/,/jovd83_github_page/img/blogs/ahead_of_ai.png,[Technical]
-Epoch AI,"They research the limits of AI. Their blogs feature clean, academic graphs on ""Training Compute Trends"" or ""Data Exhaustion""",[Research],https://epoch.ai/,/jovd83_github_page/img/blogs/epoch_ai.png,[Research]
+OpenAI Blog,Official research updates,[News],https://openai.com/blog,/img/blogs/openai_blog.png,[News]
+Google AI Blog,The work we're doing to make AI helpful for everyone.,[News],https://blog.google/technology/ai/,/img/blogs/google_ai_blog.png,[Research]
+Andrej Karpathy,Philosophical and intuitive understandings of neural networks,[Technical],https://karpathy.github.io/,/img/blogs/andrej_karpathy.png,[Personal]
+Distill.pub,Machine Learning Research,[ML],https://distill.pub/,/img/blogs/distill_pub.png,[Education]
+Towards Data Science,"Publish AI, ML & data-science insights to a global community of data professionals.",[DS],https://towardsdatascience.com/,/img/blogs/towards_data_science.png,[Community]
+OpenAI research,"We believe our research will eventually lead to artificial general intelligence, a system that can solve human-level problems. Our mission is to ensure that AGI benefits all of humanity.",[Research],https://openai.com/research/,/img/blogs/openai_research.png,[Research]
+Hugging Face blog,"The heartbeat of open-source AI. This is where you find out about new open-weight models (Llama, Mistral), optimization techniques (quantization, LoRA), and community trends.",,https://huggingface.co/blog,/img/blogs/hugging_face_blog.png,
+Google DeepMind Blog,"Focuses heavily on AGI research, reinforcement learning, and AI for science (e.g., AlphaFold).",[Research],https://deepmind.google/blog/,/img/blogs/google_deepmind_blog.png,[Research]
+BAIR,The best academic lab blog. It covers cutting-edge experimental research that often predicts where the industry will be in 6Ã¢â‚¬â€œ12 months.,[Research],https://bair.berkeley.edu/blog/,/img/blogs/bair.png,[Research]
+Ahead of AI,"Practical, code-first explanations of modern AI architectures by Sebastan Rashka",[Technical],https://magazine.sebastianraschka.com/,/img/blogs/ahead_of_ai.png,[Technical]
+Epoch AI,"They research the limits of AI. Their blogs feature clean, academic graphs on ""Training Compute Trends"" or ""Data Exhaustion""",[Research],https://epoch.ai/,/img/blogs/epoch_ai.png,[Research]
