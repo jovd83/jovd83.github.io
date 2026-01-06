@@ -1,0 +1,12 @@
+title,description,tags,link_primary,image_url,subcategory,provided_by
+Hugging Face,Open source AI community and courses,"[Platform]",https://huggingface.co/,,"[Platform]",Hugging Face
+Fast.ai,Deep Learning for coders,"[Course]",https://course.fast.ai/,,"[Deep Learning]",Fast.ai
+XAI with Python,Explainable AI course by ADataOdyssey,"[Course]",https://adataodyssey.com/courses/xai-with-python/,,"[Specialized]",ADataOdyssey
+LangChain Academy,Building with LLMs,"[Course]",https://academy.langchain.com/collections,,"[Applied AI]",LangChain
+HF Agents Course,Building AI Agents,"[Course]",https://huggingface.co/agents-course,,"[Agents]",Hugging Face
+AI Engineer (YouTube),Playlist for AI Engineering,"[Video]",https://www.youtube.com/playlist?list=PLqDyyww9y-1SJgMw92x90qPYpHgahDLIK,,"[Applied AI]",Latent Space
+LangGraph Intro,Introduction to LangGraph,"[Course]",https://academy.langchain.com/courses/intro-to-langgraph,,"[Agents]",LangChain
+Deep RL Course,Reinforcement Learning,"[Course]",https://huggingface.co/learn/deep-rl-course/unit0/introduction,,"[Deep Learning]",Hugging Face
+MCP Course,Model Context Protocol,"[Course]",https://huggingface.co/mcp-course,,"[Standards]",Hugging Face
+Elements of AI,Basics of AI (Belgium),"[Course]",https://www.elementsofai.be/,,"[Foundations]",University of Helsinki
+Building AI,Intermediate AI concepts,"[Course]",https://buildingai.elementsofai.com/,,"[Foundations]",University of Helsinki

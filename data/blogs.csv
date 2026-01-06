@@ -1,0 +1,7 @@
+title,description,tags,link_primary,image_url,subcategory
+OpenAI Blog,Official research updates,"[Research]",https://openai.com/blog,,"[Research]"
+Google AI Blog,Research and engineering,"[Dev]",https://blog.google/technology/ai/,,"[Research]"
+Andrej Karpathy,Deep Dive AI posts,"[Personal]",https://karpathy.github.io/,,"[Personal]"
+Paul Graham,Essays on startups and tech,"[Personal]",http://paulgraham.com/,,"[Personal]"
+Distill.pub,Clear explanations of ML,"[ML]",https://distill.pub/,,"[Education]"
+Towards Data Science,Data Science articles,"[DS]",https://towardsdatascience.com/,,"[Community]"

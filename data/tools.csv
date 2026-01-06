@@ -1,0 +1,36 @@
+title,description,tags,link_primary,image_url,subcategory,vendor
+OpenAI,ChatGPT and API,"[LLM]",https://openai.com/,,"[Models]",OpenAI
+ChatGPT,Conversational AI,"[Chatbot]",https://chat.openai.com/,,"[Chatbots]",OpenAI
+Gemini,Google's Multimodal AI,"[LLM]",https://gemini.google.com/,,"[Models]",Google
+Claude,Anthropic's AI Assistant,"[LLM]",https://claude.ai/,,"[Chatbots]",Anthropic
+Perplexity,AI Search Engine,"[Search]",https://www.perplexity.ai/,,"[Search]",Perplexity
+V0.dev,Generative UI,"[Dev]",https://v0.dev/,,"[Development]",Vercel
+Cursor,AI Code Editor,"[Dev]",https://cursor.sh/,,"[Development]",Anysphere
+GitHub Copilot,AI Pair Programmer,"[Dev]",https://github.com/features/copilot,,"[Development]",GitHub
+Midjourney,AI Art Generator,"[Image]",https://www.midjourney.com/,,"[Image Gen]",Midjourney
+Stable Diffusion,Open Source Image Gen,"[Image]",https://stability.ai/,,"[Image Gen]",Stability AI
+ElevenLabs,AI Voice Generator,"[Audio]",https://elevenlabs.io/,,"[Audio]",ElevenLabs
+Sora,Video Generation,"[Video]",https://openai.com/sora,,"[Video]",OpenAI
+Runway,AI Video Editing,"[Video]",https://runwayml.com/,,"[Video]",Runway
+Notion,AI Workspace,"[Productivity]",https://www.notion.so/,,"[Productivity]",Notion
+Gamma,AI Presentation Builder,"[Productivity]",https://gamma.app/,,"[Productivity]",Gamma
+Canva,Design with AI,"[Design]",https://www.canva.com/,,"[Design]",Canva
+LangChain,LLM Framework,"[Dev]",https://langchain.com/,,"[Development]",LangChain
+Ollama,Local LLM Runner,"[Dev]",https://ollama.com/,,"[Development]",Ollama
+Hugging Face,Model Hub,"[Platform]",https://huggingface.co/,,"[Platform]",Hugging Face
+Kaggle,Data Science Community,"[Platform]",https://www.kaggle.com/,,"[Platform]",Google
+PromptHive,Prompt Management,"[Tool]",https://prompthive.io/,,"[Productivity]",PromptHive
+Manus,AI Agent,"[Agent]",,,"[Agents]",Manus
+Genspark,Spark AI ??,"[Search]",,,"[Search]",Genspark
+Napkin,Visual AI,"[Design]",,,"[Design]",Napkin
+Guidde,Video Documentation,"[Productivity]",,,"[Productivity]",Guidde
+Phinf,Phone Infoga ??,"[OSINT]",,,"[Security]",Phinf
+NotebookLM,Google's Note taking AI,"[Research]",,,"[Productivity]",Google
+TestZeus Hercules,Test Automation,"[Testing]",,,"[Testing]",TestZeus
+Kusho.ai,API Testing,"[Testing]",,,"[Testing]",Kusho
+Winston AI,AI Detector,"[Detector]",,,"[Detection]",Winston
+GPTZero,AI Detector,"[Detector]",,,"[Detection]",GPTZero
+Copyleaks,Plagiarism Detector,"[Detector]",,,"[Detection]",Copyleaks
+Gandalf,AI Security Game,"[Security]",,,"[Security]",Lakera
+LangTail,Prompt Engineering,"[Dev]",,,"[Development]",LangTail
+Playwright Agents,Browser Automation,"[Dev]",,,"[Development]",Microsoft
