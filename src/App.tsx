@@ -78,7 +78,7 @@ const useCSVData = (fileName: string, category: ContentType) => {
   const [data, setData] = useState<ContentItem[]>([]);
 
   useEffect(() => {
-    Papa.parse(`/jovd83_github_page/data/${fileName}`, {
+    Papa.parse(`/data/${fileName}`, {
       download: true,
       header: true,
       skipEmptyLines: true,
