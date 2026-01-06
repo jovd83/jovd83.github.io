@@ -1,12 +1,11 @@
 title,description,tags,link_primary,image_url,subcategory,provided_by
-Hugging Face,Open source AI community and courses,"[Platform]",https://huggingface.co/,,"[Platform]",Hugging Face
-Fast.ai,Deep Learning for coders,"[Course]",https://course.fast.ai/,,"[Deep Learning]",Fast.ai
-XAI with Python,Explainable AI course by ADataOdyssey,"[Course]",https://adataodyssey.com/courses/xai-with-python/,,"[Specialized]",ADataOdyssey
-LangChain Academy,Building with LLMs,"[Course]",https://academy.langchain.com/collections,,"[Applied AI]",LangChain
-HF Agents Course,Building AI Agents,"[Course]",https://huggingface.co/agents-course,,"[Agents]",Hugging Face
-AI Engineer (YouTube),Playlist for AI Engineering,"[Video]",https://www.youtube.com/playlist?list=PLqDyyww9y-1SJgMw92x90qPYpHgahDLIK,,"[Applied AI]",Latent Space
-LangGraph Intro,Introduction to LangGraph,"[Course]",https://academy.langchain.com/courses/intro-to-langgraph,,"[Agents]",LangChain
-Deep RL Course,Reinforcement Learning,"[Course]",https://huggingface.co/learn/deep-rl-course/unit0/introduction,,"[Deep Learning]",Hugging Face
-MCP Course,Model Context Protocol,"[Course]",https://huggingface.co/mcp-course,,"[Standards]",Hugging Face
-Elements of AI,Basics of AI (Belgium),"[Course]",https://www.elementsofai.be/,,"[Foundations]",University of Helsinki
-Building AI,Intermediate AI concepts,"[Course]",https://buildingai.elementsofai.com/,,"[Foundations]",University of Helsinki
+Fast.ai,Deep Learning for coders,[Course],https://course.fast.ai/,https://course.fast.ai/images/pencil_sketch.png,[Deep Learning],Fast.ai
+XAI with Python,Explainable AI course by ADataOdyssey,[Course],https://adataodyssey.com/courses/xai-with-python/,https://adataodyssey.com/wp-content/uploads/2022/08/cropped-A-DATA-ODYSSEY.png,[XAI],ADataOdyssey
+Introduction to LangChain - Python,Learn how to build AI agents with LangChain,[Course],https://academy.langchain.com/courses/foundation-introduction-to-langchain-python,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGMLB_VzfS-PLd7DsZAQIjfNedjmAlpH6HzA&s,[Agents],LangChain
+HF Agents Course,building and deploying your own AI Agents,[Course],https://huggingface.co/agents-course,https://cdn-avatars.huggingface.co/v1/production/uploads/60cae820b1c79a3e4b436664/gSOeYxuhnE0U0HFeh__wA.png,[Agents],Hugging Face
+Introduction to SHAP,Playlist for AI Engineering,[Course],https://www.youtube.com/playlist?list=PLqDyyww9y-1SJgMw92x90qPYpHgahDLIK,https://adataodyssey.com/wp-content/uploads/2022/08/cropped-A-DATA-ODYSSEY.png,[XAI],ADataOdyssey
+Foundation: Introduction to LangGraph - Python,Learn the basics of LangGraph - our framework for building agentic and multi-agent applications.,[Course],https://academy.langchain.com/courses/intro-to-langgraph,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGMLB_VzfS-PLd7DsZAQIjfNedjmAlpH6HzA&s,[Agents],LangChain
+Deep RL Course,This course will teach you about Deep Reinforcement Learning from beginner to expert. It’s completely free and open-source!,[Course],https://huggingface.co/learn/deep-rl-course/unit0/introduction,https://cdn-avatars.huggingface.co/v1/production/uploads/60cae820b1c79a3e4b436664/gSOeYxuhnE0U0HFeh__wA.png,[Deep Learning],Hugging Face
+MCP Course,"The Model Context Protocol (MCP) Course is your comprehensive guide to understanding, using, and building cutting-edge AI applications that leverage external data and tools through the latest MCP standards. This free course is designed to take you from beginner to an informed practitioner in the world of MCP.",[Course],https://huggingface.co/mcp-course,https://cdn-avatars.huggingface.co/v1/production/uploads/60cae820b1c79a3e4b436664/gSOeYxuhnE0U0HFeh__wA.png,[MCP],Hugging Face
+Elements of AI,Basics of AI,[Course],https://www.elementsofai.be/,https://elementsofai.s3.amazonaws.com/_1200x630_crop_center-center_none/EOAIhero.png,[Foundations],University of Helsinki
+Building AI,Elements of AI part II: Intermediate AI concepts,[Course],https://buildingai.elementsofai.com/,https://elementsofai.s3.amazonaws.com/_1200x630_crop_center-center_none/EOAIhero.png,[Foundations],University of Helsinki
