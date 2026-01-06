@@ -91,7 +91,7 @@ def split_excel_to_csvs(excel_path, output_dir):
                                 img_filename = f"{cand}.png"
                                 full_img_path = os.path.join(img_dir, img_filename)
                                 if os.path.exists(full_img_path):
-                                    img_path_rel = f"/jovd83_github_page/img/prompt_frameworks/{img_filename}"
+                                    img_path_rel = f"/img/prompt_frameworks/{img_filename}"
                                     df.at[idx, 'image_url'] = img_path_rel
                                     found = True
                                     break
@@ -99,6 +99,9 @@ def split_excel_to_csvs(excel_path, output_dir):
                             if not found:
                                 print(f"Warning: Could not find image for '{title}' (tried: {[c + '.png' for c in candidates]})")
             
+            # Global cleanup: Replace old repo path with root path in all string columns
+            df = df.replace(to_replace=r'/jovd83_github_page/', value='/', regex=True)
+
             # Export to CSV
             df.to_csv(output_csv_path, index=False)
             print(f"Exported {sheet_name} to {output_csv_path}")
