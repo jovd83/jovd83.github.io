@@ -270,7 +270,7 @@ function Section({ title, intro, data, id }: SectionProps) {
   const subcategoryCounts = data.reduce((acc, item) => {
     // 1. Get subcategories (these are the keys we care about)
     const subs = parseList(item.subcategory);
-    const tags = parseList(item.tags || item.Frequency);
+
 
     // We only want to count for "Subcategories" that actually exist as buttons
     // So we first need to know all possible subcategories.
