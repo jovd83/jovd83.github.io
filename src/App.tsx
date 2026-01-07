@@ -25,7 +25,7 @@ interface ContentItem {
   youtube_podcast_link?: string;
 }
 
-type ContentType = 'Podcasts' | 'Newsletters' | 'Blogs' | 'YouTube' | 'Courses' | 'Tools' | 'Benchmarks';
+type ContentType = 'Podcasts' | 'Newsletters' | 'Blogs' | 'YouTube' | 'Courses' | 'Tools' | 'Benchmarks' | 'Libraries' | 'Prompt Frameworks';
 
 // --- Helper Functions ---
 const parseList = (str: string | undefined): string[] => {
@@ -477,6 +477,7 @@ function App() {
   const courses = useCSVData('courses.csv', 'Courses');
   const tools = useCSVData('tools.csv', 'Tools');
   const benchmarks = useCSVData('benchmarks.csv', 'Benchmarks');
+  const libraries = useCSVData('libraries.csv', 'Libraries');
   const frameworks = useCSVData('prompt_frameworks.csv', 'Prompt Frameworks' as any); // Cast as any or update type
 
   // New State: Search
@@ -521,7 +522,8 @@ function App() {
     Courses: "The structured learning I've invested time in when I wanted to build foundational knowledge or level up specific skills. Not everything needs a course, but these have been worth the time commitment when I needed more than just surface-level understanding.",
     Tools: "The AI applications I actually use (or used) in my workflow. Some tools have earned a permanent spot in how I work, research, or experiment; others have in the meantime already been replaced. The list evolves as new tools prove their value and others fade away.",
     Benchmarks: "The scorecards I check when evaluating models or understanding capabilities. Benchmarks aren't perfect, but they provide useful reference points for comparing models and tracking progress. I use these to inform decisions, not to make them for me.",
-    "Prompt Frameworks": "The patterns and structures I rely on when crafting prompts. These frameworks help me get better results more consistently, whether I'm prototyping something new or refining a production workflow. They're mental models that have proven useful across different models and use cases."
+    "Prompt Frameworks": "The patterns and structures I rely on when crafting prompts. These frameworks help me get better results more consistently, whether I'm prototyping something new or refining a production workflow. They're mental models that have proven useful across different models and use cases.",
+    Libraries: "Curated collections of prompts, tools, and resources that I reference to save time and discover new capabilities. These repositories are great starting points when I need inspiration or want to see how others are solving specific problems."
   };
 
   const navItems = [
@@ -532,6 +534,7 @@ function App() {
     { id: 'courses', label: 'Courses', count: courses.length },
     { id: 'tools', label: 'Tools', count: tools.length },
     { id: 'benchmarks', label: 'Benchmarks', count: benchmarks.length },
+    { id: 'libraries', label: 'Libraries', count: libraries.length },
     { id: 'frameworks', label: 'Frameworks', count: frameworks.length },
   ];
 
@@ -607,6 +610,7 @@ function App() {
         <Section id="courses" title="Courses" intro={intros.Courses} data={filterBySearch(courses)} />
         <Section id="tools" title="Tools" intro={intros.Tools} data={filterBySearch(tools)} />
         <Section id="benchmarks" title="Benchmarks & Reports" intro={intros.Benchmarks} data={filterBySearch(benchmarks)} />
+        <Section id="libraries" title="Libraries" intro={intros.Libraries} data={filterBySearch(libraries)} />
         <Section id="frameworks" title="Prompt Frameworks" intro={intros["Prompt Frameworks"]} data={filterBySearch(frameworks)} />
       </main>
 
