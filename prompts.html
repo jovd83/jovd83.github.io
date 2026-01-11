@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .links-grid {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .link-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .link-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .link-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-secondary);
+        }
+
+        .link-desc {
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 4rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <title>JOVD | My Prompts</title>
+  <script type="module" crossorigin src="/assets/SiteHeader-DK0lmDFn.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/SiteHeader-BiwOwbXF.css">
+</head>
+
+<body>
+    <div class="container" style="text-align: center; padding-top: 1rem;">
+
+        <header class="hero">
+            <site-header></site-header>
+        </header>
+
+        <h1 class="main-title">My Prompts</h1>
+
+        <div
+            style="display: flex; justify-content: center; align-items: flex-start; gap: 1.5rem; max-width: 800px; margin: 0 auto 3rem auto;">
+            <img src="/img/thumbs/prompts.png" alt="My Prompts"
+                style="width: 280px; height: 180px; object-fit: cover; border-radius: 8px; flex-shrink: 0; border: 1px solid var(--glass-border);">
+            <p
+                style="text-align: left; color: var(--text-muted); font-size: 1.1rem; margin: 0; align-self: flex-start;">
+                Over time, I have built a collection of prompts that I use regularly in my work. These prompts support
+                analysis, testing, exploration, and structured thinking with AI systems.<br><br>They are not tricks or
+                shortcuts. They are patterns that help make interactions with AI more explicit and more
+                repeatable.<br><br>On
+                this page, I share some of them openly on my GitHub for reuse and adaptation.
+            </p>
+        </div>
+
+        <div class="links-grid">
+            <a href="https://github.com/jovd83/vibe-coding-prompts" target="_blank" class="link-card">
+                <div class="link-title">Vibe Coding Prompts</div>
+                <div class="link-desc">A collection of prompts for coding and development workflows.</div>
+            </a>
+
+            <a href="https://github.com/jovd83/meta-prompts" target="_blank" class="link-card">
+                <div class="link-title">Meta Prompts</div>
+                <div class="link-desc">Advanced meta-prompts designed to generate other prompts and optimize
+                    interactions.</div>
+            </a>
+        </div>
+
+
+        <div style="text-align: center;">
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+</body>
+
+</html>
