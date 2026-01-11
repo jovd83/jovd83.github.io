@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+    <script type="module" src="/src/components/SiteHeader.js"></script>
+    <style>
+        .content-box {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: var(--radius-md);
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 4rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <title>JOVD | Speaking Opportunities</title>
+</head>
+
+<body>
+    <div class="container" style="text-align: center; padding-top: 1rem;">
+
+        <header class="hero">
+            <site-header></site-header>
+        </header>
+
+        <h1 class="main-title">Speaking Opportunities</h1>
+        <div
+            style="display: flex; align-items: flex-start; gap: 2rem; max-width: 800px; margin: 0 auto 3rem auto; text-align: left;">
+            <img src="/img/thumbs/speak.png" alt="Speaking Opportunities"
+                style="width: 280px; height: 180px; object-fit: cover; border-radius: 8px; flex-shrink: 0; border: 1px solid var(--glass-border);">
+            <p class="description" style="margin: 0; align-self: flex-start;">
+                If you are looking for a speaker with hands-on experience and a
+                practical, critical view on AI, feel free to reach out to discuss possibilities.
+            </p>
+        </div>
+
+        <div>
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+</body>
+
+</html>

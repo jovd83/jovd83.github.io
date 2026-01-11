@@ -25,6 +25,21 @@
   --blur-card: blur(12px);
 }
 
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--accent-primary) !important;
+  /* Force override Tailwind if needed */
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  color: var(--accent-color) !important;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;

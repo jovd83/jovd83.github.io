@@ -12,13 +12,135 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="/src/index.css" />
+  <link rel="stylesheet" href="/src/App.css" />
+  <script type="module" src="/src/components/SiteHeader.js"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
 
-  <title>JOVD | AI Radar</title>
+    .landing-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      max-width: 1400px;
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .nav-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .nav-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--glass-border);
+      mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+
+    .nav-card span {
+      padding: 0 1rem;
+      width: 100%;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 5rem;
+      line-height: 1.25;
+    }
+
+    .nav-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-card:hover img {
+      transform: scale(1.05);
+      transition: transform 0.4s ease;
+    }
+  </style>
+
+  <title>JOVD | Home</title>
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+  <div class="container">
+    <header class="hero">
+      <site-header></site-header>
+    </header>
+
+    <div class="nav-grid">
+      <a href="/tester-life.html" class="nav-card">
+        <img src="/img/thumbs/life.png" alt="Life of a Tester" />
+        <span>The life of a tester</span>
+      </a>
+      <a href="/ai-radar.html" class="nav-card">
+        <img src="/img/thumbs/radar.png" alt="My AI Radar" />
+        <span>My AI radar</span>
+      </a>
+      <a href="/prompts.html" class="nav-card">
+        <img src="/img/thumbs/prompts.png" alt="My Prompts" />
+        <span>My prompts</span>
+      </a>
+      <a href="/shownotes.html" class="nav-card">
+        <img src="/img/thumbs/shownotes.png" alt="Shownotes" />
+        <span>Shownotes</span>
+      </a>
+      <a href="/speaking.html" class="nav-card">
+        <img src="/img/thumbs/speak.png" alt="Speaking Opportunities" />
+        <span>Speaking opportunities</span>
+      </a>
+    </div>
+  </div>
 </body>
 
 </html>

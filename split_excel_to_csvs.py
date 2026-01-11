@@ -42,40 +42,39 @@ def split_excel_to_csvs(excel_path, output_dir):
             # Define the output CSV path
             output_csv_path = os.path.join(output_dir, f"{safe_name}.csv")
 
-            # Logic to handle missing image_url for Prompt Frameworks
-            if safe_name == "prompt_frameworks":
+            # --- CUSTOM LOGIC: Only support libraries.csv regeneration if requested ---
+            # Ideally controlled by args, but per user request, we enforce "libraries only" or handle libraries specifically
+            is_libraries = (safe_name == "libraries")
+            
+            # NOTE: User asked to regenerate ONLY libraries.csv. 
+            # We will skip all other sheets for this run to be safe.
+            if not is_libraries:
+                print(f"Skipping {sheet_name} (only regenerating Libraries)...")
+                continue
+
+            # Logic to handle missing image_url for Prompt Frameworks OR Libraries
+            if safe_name == "prompt_frameworks" or safe_name == "libraries":
                 # Ensure image_url column exists if not present
                 if 'image_url' not in df.columns:
                      df['image_url'] = ""
                 
                 # Iterate and try to find matching image
-                img_dir = os.path.join("public", "img", "prompt_frameworks")
+                # Folder is libraries for libraries, prompt_frameworks for prompt_frameworks
+                subfolder = "libraries" if safe_name == "libraries" else "prompt_frameworks"
+                img_dir = os.path.join("public", "img", subfolder)
+                
                 for idx, row in df.iterrows():
-                    if pd.isna(row.get('image_url')) or str(row.get('image_url')) == "":
+                    # Only infer if empty
+                    if pd.isna(row.get('image_url')) or str(row.get('image_url')) == "" or str(row.get('image_url')).lower() == 'nan':
                         title = str(row.get('Name') or row.get('Title') or "").strip()
                         if title:
-                            
                             safe_title = title.lower()
                             # Replace specific chars with underscores
                             for char in " .()-":
                                 safe_title = safe_title.replace(char, "_")
                             
-                            # Deduplicate underscores BUT be careful not to over-clean if files rely on it?
-                            # Actually, looking at `c_r_a_f_t_.png`, it corresponds to "C.R.A.F.T."
-                            # "C." -> "c_"
-                            # "R." -> "r_"
-                            # "A." -> "a_"
-                            # "F." -> "f_"
-                            # "T." -> "t_"
-                            # So "c_r_a_f_t_" is exactly what direct replacement gives.
-                            
-                            # "Few-Shot Prompting" -> "few_shot_prompting" (no trailing underscore)
-                            # Checks:
-                            # 1. Direct replacement (no strip)
-                            # 2. Strip underscores
-                            
                             candidates = []
-                            candidates.append(safe_title) # Raw replacement (might have double underscores)
+                            candidates.append(safe_title) # Raw replacement
                             
                             cand1 = safe_title
                             while "__" in cand1: cand1 = cand1.replace("__", "_")
@@ -84,20 +83,18 @@ def split_excel_to_csvs(excel_path, output_dir):
                             cand2 = cand1.strip("_")
                             if cand2 not in candidates: candidates.append(cand2)
                             
-                            img_path_rel = ""
                             found = False
-                            
                             for cand in candidates:
                                 img_filename = f"{cand}.png"
                                 full_img_path = os.path.join(img_dir, img_filename)
                                 if os.path.exists(full_img_path):
-                                    img_path_rel = f"/img/prompt_frameworks/{img_filename}"
+                                    img_path_rel = f"/img/{subfolder}/{img_filename}"
                                     df.at[idx, 'image_url'] = img_path_rel
                                     found = True
                                     break
                             
                             if not found:
-                                print(f"Warning: Could not find image for '{title}' (tried: {[c + '.png' for c in candidates]})")
+                                print(f"Warning: Could not find image for '{title}' in {subfolder} (tried: {[c + '.png' for c in candidates]})")
             
             # Global cleanup: Replace old repo path with root path in all string columns
             # Using regex=True with a string pattern to match substrings
@@ -110,8 +107,6 @@ def split_excel_to_csvs(excel_path, output_dir):
             # Export to CSV
             df.to_csv(output_csv_path, index=False)
             print(f"Exported {sheet_name} to {output_csv_path}")
-            
-            # Export to CSV
             
     except Exception as e:
         print(f"An error occurred: {e}")

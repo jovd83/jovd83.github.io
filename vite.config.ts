@@ -5,4 +5,16 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/',
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        radar: 'ai-radar.html',
+        tester: 'tester-life.html',
+        prompts: 'prompts.html',
+        shownotes: 'shownotes.html',
+        speaking: 'speaking.html',
+      },
+    },
+  },
 })

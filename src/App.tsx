@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import './App.css';
+import './components/SiteHeader.js';
 
 // --- Types ---
 interface ContentItem {
@@ -40,11 +41,11 @@ const parseList = (str: string | undefined): string[] => {
 const getTagColorClass = (tag: string): string => {
   const lower = tag.toLowerCase();
 
-  if (lower.includes('coding') || lower.includes('dev')) return 'tag-blue';
-  if (lower.includes('ai') || lower.includes('llm')) return 'tag-purple';
+  if (lower.includes('coding') || lower.includes('dev') || lower.includes('mcp')) return 'tag-blue';
+  if (lower.includes('ai') || lower.includes('llm') || lower.includes('prompts')) return 'tag-purple';
   if (lower.includes('news') || lower.includes('red')) return 'tag-red'; // Fixed: 'news' -> 'tag-red'
   if (lower.includes('design') || lower.includes('creative')) return 'tag-pink';
-  if (lower.includes('edu') || lower.includes('tutorial')) return 'tag-green';
+  if (lower.includes('edu') || lower.includes('tutorial') || lower.includes('skills')) return 'tag-green';
   if (lower.includes('product') || lower.includes('tool')) return 'tag-orange';
 
   return ''; // Default (grey)
@@ -547,32 +548,20 @@ function App() {
     }
   };
 
+
+
   return (
     <div className="app-container">
       <header className="hero">
-        <div className="profile-container" style={{ flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-          <img
-            src="https://avatars.githubusercontent.com/u/116805343?v=4"
-            alt="JOVD83"
-            className="profile-pic"
-            style={{ objectFit: 'cover' }}
-          />
-          <div className="social-links" style={{ display: 'flex', gap: '1rem' }}>
-            {/* GitHub */}
-            <a href="https://github.com/jovd83" target="_blank" rel="noopener noreferrer" className="btn-icon" title="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.05-.015-2.055-3.33.72-4.035-1.605-4.035-1.605-.54-1.38-1.335-1.755-1.335-1.755-1.085-.735.09-.72.09-.72 1.2.075 1.83 1.23 1.83 1.23 1.065 1.815 2.805 1.29 3.495.99.105-.78.42-1.29.765-1.59-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405 1.02 0 2.04.135 3 .405 2.295-1.545 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
-            </a>
-            {/* LinkedIn */}
-            <a href="https://www.linkedin.com/in/jvdorpe/" target="_blank" rel="noopener noreferrer" className="btn-icon" title="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
-            </a>
-          </div>
+        {/* @ts-ignore */}
+        <site-header></site-header>
+        <h1 className="main-title">AI Radar</h1>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', gap: '2rem', maxWidth: '900px', margin: '0 auto' }}>
+          <img src="/img/thumbs/radar.png" alt="AI Radar" style={{ width: '280px', height: '180px', objectFit: 'cover', borderRadius: 'var(--radius-md)', flexShrink: 0, border: '1px solid var(--glass-border)' }} />
+          <p className="bio" style={{ textAlign: 'left', margin: 0, alignSelf: 'center' }}>
+            People often ask me where I get my AI information, which models I use, and how I stay current in this fast-moving field. This page is my personal AI radar: not an exhaustive list, but simply the resources and tools that have become part of my daily routine, both in my professional life and for my hobbies. Your mileage may vary, and there are plenty of other great options out there. Consider this a starting point for building your own AI toolkit, shaped by what works for your specific needs and interests.
+          </p>
         </div>
-        <h1 className="main-title">JOVD | AI Radar</h1>
-        <p className="bio">
-          People often ask me where I get my AI information, which models I use, and how I stay current in this fast-moving field. This page is my personal AI radar: not an exhaustive list, but simply the resources and tools that have become part of my daily routine, both in my professional life and for my hobbies. Your mileage may vary, and there are plenty of other great options out there. Consider this a starting point for building your own AI toolkit, shaped by what works for your specific needs and interests.
-        </p>
-
       </header>
 
       <nav className="sticky-nav">
@@ -614,10 +603,11 @@ function App() {
         <Section id="frameworks" title="Prompt Frameworks" intro={intros["Prompt Frameworks"]} data={filterBySearch(frameworks)} />
       </main>
 
-      <footer>
-        <p>© {new Date().getFullYear()} @jovd83. All content curated by me.</p>
-        <p className="footer-small">Powered by Vite & GitHub Pages</p>
-      </footer>
+      <div style={{ textAlign: 'center', margin: '4rem 0' }}>
+        <a href="/" className="back-link">← Back to Home</a>
+      </div>
+
+
 
       {/* Back to Top Button */}
       <div className={`back-to-top ${showTopBtn ? 'visible' : ''}`} onClick={scrollToTop}>
