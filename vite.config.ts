@@ -13,6 +13,7 @@ export default defineConfig({
         tester: 'tester-life.html',
         prompts: 'prompts.html',
         shownotes: 'shownotes.html',
+        genz: 'shownotes/GenZ_AILiteracy/index.html',
         speaking: 'speaking.html',
       },
     },
