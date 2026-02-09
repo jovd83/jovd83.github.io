@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link href="/vite.svg" rel="icon" type="image/svg+xml" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Outfit:wght@500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <title>
+        JOVD | GenZ AI Literacy 101
+    </title>
+    <style>
+        .main-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .item-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-container {
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: left;
+        }
+
+        .banner-img {
+            width: 100%;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            margin-bottom: 2rem;
+        }
+
+        .section-block {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            word-break: break-word;
+            /* Prevent long URLs from breaking layout */
+        }
+
+        .part-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+        }
+
+        .subsection-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .links-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .links-list li::before {
+            content: "\2022";
+            color: var(--accent-secondary);
+            position: absolute;
+            left: 0;
+        }
+
+        .links-list a {
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-secondary);
+            transition: all 0.2s;
+        }
+
+        .links-list a:hover {
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
+        }
+
+        /* YouTube Card Styles */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .video-card {
+            display: block;
+            text-decoration: none;
+            color: var(--text-main);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            border: 1px solid var(--glass-border);
+            width: 100%;
+            /* Removed max-width to allow full width as requested */
+        }
+
+        .video-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-primary);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-card span {
+            display: block;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+
+        /* Redesign: Centered Layout (No Sidebar) */
+        .layout-wrapper {
+            display: block;
+            width: 100%;
+        }
+
+        .main-content {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .intro-block {
+            margin-bottom: 3rem;
+        }
+
+        .parts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .video-card {
+                width: 100%;
+            }
+        }
+
+        /* Clean Video Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        /* Hover Effects */
+        .part-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .part-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent-primary);
+            color: #000;
+            /* High contrast against accent color */
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--accent-secondary);
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/SiteHeader-C9jF2dS7.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/SiteHeader-BgIZgQb6.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="hero">
+            <site-header>
+            </site-header>
+        </header>
+        <div class="page-container">
+            <h1 class="main-title">
+                GenZ AI Literacy 101
+            </h1>
+            <div class="layout-wrapper">
+                <main class="main-content">
+                    <div class="intro-block">
+                        <img alt="GenZ AI Literacy Banner" class="banner-img" src="/assets/banner-CjDyN9gq.png" />
+                        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
+                            Welcome to the shownotes for the GenZ AI Literacy 101 talk.
+                            Here you will find all the resources, links, and references mentioned during the
+                            presentation.
+                        </p>
+                    </div>
+                    <div class="parts-list">
+                        <div class="section-block">
+                            <h2 class="section-title" id="part1">
+                                Part 1: The lab is open
+                            </h2>
+                            <img alt="Part 1: The lab is open" class="part-img" src="/assets/PartI-B3o8wM2i.png" />
+                            <p class="part-intro"
+                                style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main);">
+                                We begin by defining what AI literacy actually means and why it matters. This section
+                                explores the current state of AI adoption globally and locally, providing a data-driven
+                                foundation for understanding the technology's rapid expansion.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/AI_literacy" target="_blank">
+                                        what is AI Literacy
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <h3 class="subsection-title">
+                                Global Adoption &amp; Trends
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://datareportal.com/reports/digital-2026-global-overview-report"
+                                        target="_blank">
+                                        Report: Digital 2026: Global Overview Report
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/ai-economy-institute/reports/global-ai-adoption-2025/"
+                                        target="_blank">
+                                        Report: Microsoft global ai adoption report
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Use Cases &amp; Demographics
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://masterofcode.com/blog/generative-ai-statistics" target="_blank">
+                                        Report: Generative AI Statistics 2026 (Aggregated Industry Review)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.salesforce.com/news/stories/generative-ai-statistics/"
+                                        target="_blank">
+                                        Report: Generative AI Snapshot Research Series
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Regional Data (Belgium &amp; EU)
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Use_of_artificial_intelligence_in_enterprises"
+                                        target="_blank">
+                                        Report: Eurostat: Use of Artificial Intelligence in Enterprises 2025
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.imec.be/nl/vlaamse-innovatiemotor/kennisuitwisseling/techmeters/digimeter"
+                                        target="_blank">
+                                        Report: imec.digimeter 2024 / 2025 (Annual Digital Trends in Flanders)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://gs.statcounter.com/" target="_blank">
+                                        Generate your own reports and stats on AI
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section-block">
+                            <h2 class="section-title" id="part2">
+                                Part II - The ghost in your pocket
+                            </h2>
+                            <img alt="Part II - The ghost in your pocket" class="part-img" src="/assets/PartII-DFUK28gI.png" />
+                            <p class="part-intro"
+                                style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main);">
+                                AI is no longer a futuristic concept; it is already woven into the fabric of our daily
+                                lives. From smartphone apps to recommendation algorithms, this section reveals the
+                                "ghost" in your pocket and how AI silently shapes our digital experiences.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.thats-ai.org/en-GB/units/ai-is-all-around-us" target="_blank">
+                                        Ai Is All Around Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section-block">
+                            <h2 class="section-title" id="part3">
+                                Part III -Not a Brain, Just a Mirror
+                            </h2>
+                            <img alt="Part III -Not a Brain, Just a Mirror" class="part-img" src="/assets/PartIII-D2CjIu3B.png" />
+                            <p class="part-intro"
+                                style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main);">
+                                Demystifying the technology, we look at how AI actually works - not as a sentient brain,
+                                but as a sophisticated mirror of human data. We cover the history, the major players,
+                                and the "ChatGPT moment" that changed everything.
+                            </p>
+                            <h3 class="subsection-title">
+                                The AI landscape:
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://cloud.google.com/learn/what-is-artificial-intelligence"
+                                        target="_blank">
+                                        What Is Artificial Intelligence
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                The chatGPT moment
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://epoch.ai/gradient-updates/after-the-chatgpt-moment-measuring-ais-adoption"
+                                        target="_blank">
+                                        After The Chatgpt Moment Measuring Ais Adoption
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/pulse/zero-100-million-what-chatgpts-individual-adoption-melise-p86cc/"
+                                        target="_blank">
+                                        Zero 100 Million What Chatgpts Individual Adoption Melise P86Cc
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                The history of AI
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/History_of_artificial_intelligence"
+                                        target="_blank">
+                                        History Of Artificial Intelligence
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Who's behind AI
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://time.com/7339685/person-of-the-year-2025-ai-architects/"
+                                        target="_blank">
+                                        Person Of The Year 2025 Ai Architects
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://aimagazine.com/top10/top-10-ai-companies-2025" target="_blank">
+                                        Top 10 Ai Companies 2025
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                It's only the beginning
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.gartner.com/en/articles/hype-cycle-for-artificial-intelligence"
+                                        target="_blank">
+                                        Hype Cycle For Artificial Intelligence
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                AGI
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/Artificial_general_intelligence"
+                                        target="_blank">
+                                        Artificial General Intelligence
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section-block">
+                            <h2 class="section-title" id="part4">
+                                Part IV - The Math Behind the Magic
+                            </h2>
+                            <img alt="Part IV - The Math Behind the Magic------------" class="part-img"
+                                src="/assets/PartIV-CixrT1D7.png" />
+                            <p class="part-intro"
+                                style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main);">
+                                Peeling back the curtain, we dive into the technical and physical reality of AI. We
+                                explore the massive data centers, the energy consumption, the costs, and the complex
+                                mathematics that make these models possible.
+                            </p>
+                            <h3 class="subsection-title">
+                                AI datacenter
+                            </h3>
+
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=XIyTs2Rr0sE"
+                                    target="_blank">
+                                    <img alt="AI Hypercomputer: Behind the scenes at a Google Cloud data center"
+                                        src="https://img.youtube.com/vi/XIyTs2Rr0sE/mqdefault.jpg" />
+                                    <span>
+                                        AI Hypercomputer: Behind the scenes at a Google Cloud data center
+                                    </span>
+                                </a>
+                            </div>
+                            <h3 class="subsection-title">
+                                Ecology
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai"
+                                        target="_blank">
+                                        Electricity
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=5COwOnn05qY"
+                                    target="_blank">
+                                    <img alt="rebooting nuclear facilities for AI"
+                                        src="https://img.youtube.com/vi/5COwOnn05qY/mqdefault.jpg" />
+                                    <span>
+                                        rebooting nuclear facilities for AI
+                                    </span>
+                                </a>
+                            </div>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.eesi.org/articles/view/data-centers-and-water-consumption"
+                                        target="_blank">
+                                        Water
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Money
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://futurism.com/the-byte/chatgpt-costs-openai-every-day"
+                                        target="_blank">
+                                        Chatgpt Costs Openai Every Day
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models"
+                                        target="_blank">
+                                        How Much Does It Cost To Train Frontier Ai Models
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Training data
+                            </h3>
+
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=7ZoIhsKQZFA"
+                                    target="_blank">
+                                    <img alt="Inside Chinaâ€™s Robot Training Factory: Where Humanoids Learn to Work"
+                                        src="https://img.youtube.com/vi/7ZoIhsKQZFA/mqdefault.jpg" />
+                                    <span>
+                                        Inside Chinaâ€™s Robot Training Factory: Where Humanoids Learn to Work
+                                    </span>
+                                </a>
+                            </div>
+                            <h3 class="subsection-title">
+                                Training a model
+                            </h3>
+                            <ul class="links-list">
+                                <li>
+                                    The labubu model:
+                                    <a href="https://www.kaggle.com/code/jochimvandorpe/labubu" target="_blank">
+                                        Labubu
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=G82laiz58gM"
+                                    target="_blank">
+                                    <img alt="How computers understand images"
+                                        src="https://img.youtube.com/vi/G82laiz58gM/mqdefault.jpg" />
+                                    <span>
+                                        How computers understand images
+                                    </span>
+                                </a>
+                                <a class="video-card" href="https://www.youtube.com/watch?v=o_3mboe1jYI"
+                                    target="_blank">
+                                    <img alt="Resnet explained in under 10 minutes"
+                                        src="https://img.youtube.com/vi/o_3mboe1jYI/mqdefault.jpg" />
+                                    <span>
+                                        Resnet explained in under 10 minutes
+                                    </span>
+                                </a>
+                                <a class="video-card" href="https://www.youtube.com/watch?v=w1UsKanMatM"
+                                    target="_blank">
+                                    <img alt="Resnet explained with Math"
+                                        src="https://img.youtube.com/vi/w1UsKanMatM/mqdefault.jpg" />
+                                    <span>
+                                        Resnet explained with Math
+                                    </span>
+                                </a>
+                            </div>
+                            <h4 class="item-title">
+                                Learn how to train your own model:
+                                <ul class="links-list">
+                                    <li>
+                                        <a href="https://course.fast.ai/Lessons/lesson2.html" target="_blank">
+                                            Learn how to train your own model
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://matrixmultiplication.xyz/" target="_blank">
+                                            Matrix multiplications
+                                        </a>
+                                    </li>
+                                </ul>
+                                <h3 class="subsection-title">
+                                    How does it Work
+                                </h3>
+                                <div class="video-grid">
+                                    <a class="video-card" href="https://www.youtube.com/watch?v=NKnZYvZA7w4"
+                                        target="_blank">
+                                        <img alt="How LLMs Actually Generate Text"
+                                            src="https://img.youtube.com/vi/NKnZYvZA7w4/mqdefault.jpg" />
+                                        <span>
+                                            How LLMs Actually Generate Text
+                                        </span>
+                                    </a>
+                                </div>
+                                <ul class="links-list">
+                                    <li>
+                                        <a href="https://platform.openai.com/tokenizer" target="_blank">
+                                            Openai tokenizer
+                                        </a>
+                                    </li>
+                                </ul>
+                                <h3 class="subsection-title">
+                                    Trying it out
+                                </h3>
+                                <ul class="links-list">
+                                    <li>
+                                        <a href="https://www.anthropic.com/research/project-vend-1" target="_blank">
+                                            Project Vend 1
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="links-list">
+                                    <li>
+                                        <a href="https://www.anthropic.com/research/project-vend-2" target="_blank">
+                                            Project Vend 2
+                                        </a>
+                                    </li>
+                                </ul>
+                        </div>
+                        <div class="section-block">
+                            <h2 class="section-title" id="part5">
+                                Part V - The amazing stuff
+                            </h2>
+                            <img alt="Part V - The amazing stuff" class="part-img" src="/assets/partV-D0mu55GI.png" />
+                            <p class="part-intro"
+                                style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main);">
+                                Beyond the text generators, AI is solving protein structures, assisting coders, and
+                                revolutionizing healthcare. This section highlights the truly transformative and
+                                positive applications of AI technology.
+                            </p>
+                            <h3 class="subsection-title">
+                                Alphafold
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Uses AI to predict the precise 3D shape of proteins, accelerating drug discovery and
+                                our understanding of biology.
+                            </p>
+                            <p>
+                                Find out more ...:
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/AlphaFold" target="_blank">
+                                        Alphafold
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Code assistants
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                AI tools that help developers write, debug, and optimize code, boosting productivity
+                                and lowering the barrier to entry for programming.
+                            </p>
+                            <p>
+                                Find out more ...:
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/AI-assisted_software_development"
+                                        target="_blank">
+                                        Ai Assisted Software Development
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                AI in healthcare
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                From analyzing medical images to personalizing treatment plans, AI is assisting
+                                doctors in providing faster and more accurate care.
+                            </p>
+                            <p>
+                                Find out more ...:
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://health.ec.europa.eu/ehealth-digital-health-and-care/artificial-intelligence-healthcare_en"
+                                        target="_blank">
+                                        Artificial Intelligence Healthcare En
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Be My eyes
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                An app that connects blind and low-vision users with sighted volunteers or AI to
+                                help them navigate the world and complete daily tasks.
+                            </p>
+                            <p>
+                                Find out more ...:
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.bemyeyes.com/bme-ai/" target="_blank">
+                                        Bme Ai
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                AI in education
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Transforming learning through personalized tutoring, automated grading, and
+                                adaptive curriculum that meets each student's unique needs.
+                            </p>
+                            <p>
+                                Find out more ...:
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/Artificial_intelligence_in_education"
+                                        target="_blank">
+                                        Artificial Intelligence In Education
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=oV6HWzzeD-I"
+                                    target="_blank">
+                                    <img alt="AI Will Reshape Education. Are We Building Tools We Can Trust?"
+                                        src="https://img.youtube.com/vi/oV6HWzzeD-I/mqdefault.jpg" />
+                                    <span>
+                                        AI Will Reshape Education. Are We Building Tools We Can Trust?
+                                    </span>
+                                </a>
+
+                                <a class="video-card" href="https://www.youtube.com/watch?v=JMLsHI8aV0g"
+                                    target="_blank">
+                                    <img alt="How China Is Using Artificial Intelligence in Classrooms | WSJ"
+                                        src="https://img.youtube.com/vi/JMLsHI8aV0g/mqdefault.jpg" />
+                                    <span>
+                                        How China Is Using Artificial Intelligence in Classrooms | WSJ
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="section-block">
+                            <h2 class="section-title" id="part6">
+                                Part VI The problems
+                            </h2>
+                            <img alt="Part VI The problems" class="part-img" src="/assets/PartVI-BpBV0Ujg.png" />
+                            <p class="part-intro"
+                                style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main);">
+                                With great power comes great responsibility - and risk. Here we examine the critical
+                                issues: hallucinations, bias, deepfakes, and the "Swiss Cheese Model" of AI failure.
+                                (<a href="https://en.wikipedia.org/wiki/Swiss_cheese_model" target="_blank"
+                                    style="text-decoration: underline;">What is a swiss cheese model</a>)
+                            </p>
+                            <p>
+                                AI controversies
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/Artificial_intelligence_controversies"
+                                        target="_blank">
+                                        Artificial Intelligence Controversies
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Hallucination
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                When an AI confidently generates false or illogical information that isn't based on its
+                                training data.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://cloud.google.com/discover/what-are-ai-hallucinations"
+                                        target="_blank">
+                                        What are AI hallucinations
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)"
+                                        target="_blank">
+                                        AI hallucinations
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=cfqtFvWOfg0"
+                                    target="_blank">
+                                    <img alt="Why large language models hallucinate"
+                                        src="https://img.youtube.com/vi/cfqtFvWOfg0/mqdefault.jpg" />
+                                    <span>
+                                        Why large language models hallucinate
+                                    </span>
+                                </a>
+                            </div>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.404media.co/ai-generated-mushroom-foraging-books-amazon/"
+                                        target="_blank">
+                                        Ai Generated Mushroom Foraging Books Amazon
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Overconfidence
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                AI models often present incorrect answers with the same level of certainty as correct
+                                ones, making errors hard to spot.
+                            </p>
+                            <p>
+                                AI chatbots are overconfident
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.cmu.edu/dietrich/news/news-stories/2025/july/trent-cash-ai-overconfidence.html"
+                                        target="_blank">
+                                        Trent Cash Ai Overconfidence
+                                    </a>
+                                </li>
+                            </ul>
+                            <p>
+                                Galactica
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science/"
+                                        target="_blank">
+                                        Meta Large Language Model Ai Only Survived Three Days Gpt 3 Science
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Bias
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Systematic errors in AI output that create unfair outcomes, often reflecting historical
+                                prejudices present in the training data.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.ibm.com/think/topics/ai-bias" target="_blank">
+                                        Ai Bias
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/Algorithmic_bias" target="_blank">
+                                        Algorithmic Bias
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=og67qeTZPYs"
+                                    target="_blank">
+                                    <img alt="Algorithmic Bias in AI: What It Is and How to Fix It"
+                                        src="https://img.youtube.com/vi/og67qeTZPYs/mqdefault.jpg" />
+                                    <span>
+                                        Algorithmic Bias in AI: What It Is and How to Fix It
+                                    </span>
+                                </a>
+
+                                <a class="video-card" href="https://www.youtube.com/watch?v=48a5160Qlxw"
+                                    target="_blank">
+                                    <img alt="Bias simply explained"
+                                        src="https://img.youtube.com/vi/48a5160Qlxw/mqdefault.jpg" />
+                                    <span>
+                                        Bias simply explained
+                                    </span>
+                                </a>
+                            </div>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.bloomberg.com/graphics/2023-generative-ai-bias/"
+                                        target="_blank" style="text-decoration: underline;">
+                                        Gender and skin type bias
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="links-list">
+                                <li>
+                                    Dog or wolf?
+                                </li>
+                            </ul>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=Nl5foUUbwH4"
+                                    target="_blank">
+                                    <img alt="Dog or wolf?"
+                                        src="https://img.youtube.com/vi/Nl5foUUbwH4/mqdefault.jpg" />
+                                    <span>
+                                        Dog or wolf?
+                                    </span>
+                                </a>
+                            </div>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.lesswrong.com/posts/5o3CxyvZ2XKawRB5w/machine-learning-and-unintended-consequences"
+                                        target="_blank" style="text-decoration: underline;">
+                                        Tank in the forest
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Reasoning flaws
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Despite their fluency, AI models struggle with genuine logic, common sense, and
+                                multi-step reasoning problems.
+                            </p>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=CB7NNsI27ks"
+                                    target="_blank">
+                                    <img alt="Can AI think"
+                                        src="https://img.youtube.com/vi/CB7NNsI27ks/mqdefault.jpg" />
+                                    <span>
+                                        Can AI think
+                                    </span>
+                                </a>
+                            </div>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://arxiv.org/html/2506.06941v3" target="_blank"
+                                        style="text-decoration: underline;">
+                                        The Illusion of thinking
+                                    </a>
+                                </li>
+                            </ul>
+                            <p>
+                                The pizza glue incident
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.theverge.com/2024/5/24/24164119/google-ai-overview-mistakes-glue-pizza-rocks`"
+                                        target="_blank">
+                                        Google Ai Overview Mistakes Glue Pizza Rocks`
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.reddit.com/r/ShittyLifeProTips/comments/1cz83mc/slpt_google_ai_suggests_glue_to_keep_cheese_from/"
+                                        target="_blank">
+                                        Slpt Google Ai Suggests Glue To Keep Cheese From
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Deepfakes
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Synthetic media (audio, video, or images) generated by AI to convincingly impersonate
+                                real people, often used for misinformation or fraud.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/Deepfake" target="_blank">
+                                        Deepfake
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.politie.be/5350/nl/vragen/cybercrime/deepnude" target="_blank">
+                                        Deepnude
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.demorgen.be/nieuws/frans-president-macron-deelt-eigen-deepfakes-om-start-ai-top-te-promoten-niet-zo-onschuldig-als-het-lijkt~b73d64e8/"
+                                        target="_blank" style="text-decoration: underline;">
+                                        Macron deepfake
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.tiktok.com/@vtmnieuws_be/video/7592554356231212321"
+                                        target="_blank">
+                                        VTMnieuws: AI-chatbot Grok onder vuur voor naaktbeelden
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://youtu.be/RMbfkOEuzko?si=vHCW2toUf5L_l5vL"
+                                    target="_blank">
+                                    <img alt="Grok en seksuele deepfakes"
+                                        src="https://img.youtube.com/vi/RMbfkOEuzko/mqdefault.jpg" />
+                                    <span>
+                                        Grok en seksuele deepfakes
+                                    </span>
+                                </a>
+                            </div>
+                            <h3 class="subsection-title">
+                                AI jailbreak
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Techniques used to bypass an AI's safety filters and ethical guardrails, forcing it to
+                                generate prohibited content.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.ibm.com/think/topics/ai-guardrails" target="_blank">
+                                        Ai Guardrails
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.ibm.com/think/insights/ai-jailbreak" target="_blank"
+                                        style="text-decoration: underline;">
+                                        What is a jailbreak
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://in.ign.com/tech/182742/news/ai-grandma-exploit-used-to-fool-the-system"
+                                        target="_blank">
+                                        Ai Grandma Exploit Used To Fool The System
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                AI Slop
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Low-quality, mass-produced AI content (spam images, nonsense text) that floods the
+                                internet, degrading the user experience.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/AI_slop" target="_blank"
+                                        style="text-decoration: underline;">
+                                        What is Slop?
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=_zfN9wnPvU0"
+                                    target="_blank">
+                                    <img alt="AI slop is destroying the internet-problem/"
+                                        src="https://img.youtube.com/vi/_zfN9wnPvU0/mqdefault.jpg" />
+                                    <span>
+                                        AI slop is destroying the internet-problem/
+                                    </span>
+                                </a>
+                            </div>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://euroweeklynews.com/2024/10/13/ai-and-baby-peacocks-a-growing-internet-problem/"
+                                        target="_blank">
+                                        Ai And Baby Peacocks A Growing Internet Problem
+                                    </a>
+                                </li>
+                            </ul>
+                            <p>
+                                The AI epidemic on social media
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.sgmk.edu.pl/you-read-ai-generated-content-more-often-than-you-think-its-already-almost-half-of-facebook/"
+                                        target="_blank">
+                                        You Read Ai Generated Content More Often Than You Think Its Already Almost Half
+                                        Of
+                                        Facebook
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://finance.yahoo.com/news/how-to-clear-ai-slop-from-your-instagram-and-tiktok-feeds-180133654.html"
+                                        target="_blank">
+                                        How To Clear Ai Slop From Your Instagram And Tiktok Feeds 180133654
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=1Ouh0suhxGA"
+                                    target="_blank">
+                                    <img alt="Vrtnieuws De afspraak on AI slop:"
+                                        src="https://img.youtube.com/vi/1Ouh0suhxGA/mqdefault.jpg" />
+                                    <span>
+                                        Vrtnieuws De afspraak on AI slop:
+                                    </span>
+                                </a>
+
+                                <a class="video-card" href="https://www.youtube.com/watch?v=TWpg1RmzAbc"
+                                    target="_blank">
+                                    <img alt="AI Slop: Last Week Tonight with John Oliver (HBO)"
+                                        src="https://img.youtube.com/vi/TWpg1RmzAbc/mqdefault.jpg" />
+                                    <span>
+                                        AI Slop: Last Week Tonight with John Oliver (HBO)
+                                    </span>
+                                </a>
+
+                                <a class="video-card" href="https://www.youtube.com/watch?v=uoPxg8S5LAg"
+                                    target="_blank">
+                                    <img alt="Kijkersvragen: AI-editie | De Avondshow met Arjen Lubach (S5)"
+                                        src="https://img.youtube.com/vi/uoPxg8S5LAg/mqdefault.jpg" />
+                                    <span>
+                                        Kijkersvragen: AI-editie | De Avondshow met Arjen Lubach (S5)
+                                    </span>
+                                </a>
+                            </div>
+                            </p>
+                        </div>
+                        <div class="section-block">
+                            <h2 class="section-title" id="part7">
+                                Part VII - Conclusions
+                            </h2>
+                            <img alt="Part VII - Conclusions" class="part-img" src="/assets/PartVII-BGDqpujK.png" />
+                            <p class="part-intro"
+                                style="font-size: 1.05rem; line-height: 1.6; color: var(--text-main);">
+                                We conclude with a look forward. What does an AI-literate future look like, and how can
+                                we navigate the coming changes with skills like critical thinking, prompt engineering,
+                                and digital self-defense?
+                            </p>
+                            <h3 class="subsection-title">
+                                SEARCH first
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Don't ask a chatbot for facts immediately. Use a search engine to verify information, as
+                                AI can hallucinate.
+                            </p>
+                            <h3 class="subsection-title">
+                                PROTECT Your Digital Self
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Treat everything you type into an AI as public. Never share passwords, addresses, or
+                                personal photos.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    The "Forever" Rule
+                                </li>
+                                <li>
+                                    No PII: Never share Personally Identifiable Information (full name + address,
+                                    passwords,
+                                    medical
+                                    info, photos of faces).
+                                </li>
+                                <li>
+                                    The "Leak" Risk
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                UNDERSTAND Academic Integrity
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                AI is a tool, not a replacement for learning. Using it to bypass work robs you of
+                                critical thinking skills.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    Don't copy paste
+                                </li>
+                            </ul>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://arstechnica.com/ai/2024/07/the-telltale-words-that-could-identify-generative-ai-text/"
+                                        target="_blank">
+                                        The Telltale Words That Could Identify Generative Ai Text
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://embryo.com/blog/list-words-ai-overuses/" target="_blank">
+                                        List Words Ai Overuses
+                                    </a>
+                                </li>
+                            </ul>
+                            <p>
+                                AI detectors
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://gowinston.ai/" target="_blank">
+                                        Winston AI: (AI content detection solution)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://gptzero.me/" target="_blank">
+                                        GPTZero: (The gold standard in AI detection)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://copyleaks.com/" target="_blank">
+                                        Copylakes: (AI-based plagiarism and content
+                                        detection)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.zerogpt.com/" target="_blank">
+                                        ZeroGPT: (Advanced AI content detector)
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                QUESTION the Output
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Large Language Models are designed to sound convincing, not truthful. Always
+                                double-check their claims.
+                            </p>
+                            <p>
+                                LLMs are people pleasers
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://hai.stanford.edu/news/large-language-models-just-want-to-be-liked"
+                                        target="_blank">
+                                        Large Language Models Just Want To Be Liked
+                                    </a>
+                                </li>
+                            </ul>
+                            <p>
+                                AI confessions
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://openai.com/nl-NL/index/how-confessions-can-keep-language-models-honest/"
+                                        target="_blank">
+                                        How Confessions Can Keep Language Models Honest
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                BALANCE AI and Human Skills
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Don't let your own skills atrophy. AI should augment your abilities, not replace the
+                                need for them.
+                            </p>
+                            <p>
+                                Don't be a waze zombie
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.vrt.be/vrtnws/nl/2025/11/15/word-geen-waze-zombie-eerste-hulp-voor-gebruikers-beheerders-v/"
+                                        target="_blank">
+                                        Word Geen Waze Zombie Eerste Hulp Voor Gebruikers Beheerders V
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Always start a NEW CONTEXT window
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Start fresh to avoid confused AI. Long conversations can degrade quality and introduce
+                                errors.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://www.ibm.com/think/topics/context-window" target="_blank">
+                                        Context Window
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="subsection-title">
+                                Anthropomorphism: stop saying thanks
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                AI is software, not a person. Treating it like a human can lead to emotional attachment
+                                and manipulation.
+                            </p>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=SQZn8nPve5A&amp;t=13s"
+                                    target="_blank">
+                                    <img alt="A.I. relationships are on the rise"
+                                        src="https://img.youtube.com/vi/SQZn8nPve5A/mqdefault.jpg" />
+                                    <span>
+                                        A.I. relationships are on the rise
+                                    </span>
+                                </a>
+                            </div>
+                            <h3 class="subsection-title">
+                                PROMPT like a pro
+                            </h3>
+                            <p style="margin-bottom: 1rem;">
+                                Garbage in, garbage out. Learn to structure your requests clearly to get the best
+                                results.
+                            </p>
+                            <p>
+                                AI prompt security games
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://prompting.ai.immersivelabs.com/" target="_blank">
+                                        Immersive labs prompting
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://gandalf.lakera.ai/" target="_blank">
+                                        Gandalf
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://red.giskard.ai/" target="_blank">
+                                        Giskard red
+                                    </a>
+                                </li>
+                            </ul>
+                            <p>
+                                prompt engineering &amp; AI prompting frameworks
+                            </p>
+                            <div class="video-grid">
+                                <a class="video-card" href="https://www.youtube.com/watch?v=JEutBY2z45I"
+                                    target="_blank">
+                                    <img alt="See the prompt framework in action"
+                                        src="https://img.youtube.com/vi/JEutBY2z45I/mqdefault.jpg" />
+                                    <span>
+                                        See the prompt framework in action
+                                    </span>
+                                </a>
+                                <a class="video-card" href="https://www.youtube.com/watch?v=p09yRj47kNM"
+                                    target="_blank">
+                                    <img alt="Prompt engineering in 20 minutes"
+                                        src="https://img.youtube.com/vi/p09yRj47kNM/mqdefault.jpg" />
+                                    <span>
+                                        Prompt engineering in 20 minutes
+                                    </span>
+                                </a>
+                            </div>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="https://bacoach.nl/2025/11/prompt-engineering-craft-framework/"
+                                        target="_blank">
+                                        C.R.A.F.T. (my favourite framework)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/jovd83/meta-prompts" target="_blank">
+                                        The meta prompts I use
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="section-block">
+                            <h2 class="section-title">
+                                My AI Radar
+                            </h2>
+                            <p>
+                                My AI toolkit: Podcasts, newsletters, blogs, youtube-channels, courses, tools,
+                                benchmarks,
+                                libraries and frameworks.
+                            </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="http://ai.jochimvandorpe.be" target="_blank">
+                                        http://ai.jochimvandorpe.be
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="back-link" href="/shownotes.html">
+                            ← Back to Shownotes
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a id="backToTop" class="back-to-top" title="Back to Top">
+        ↑
+    </a>
+
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+
+</html>
