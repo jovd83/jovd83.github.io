@@ -270,9 +270,12 @@ What is a cotnext window
 https://www.ibm.com/think/topics/context-window
 
 ## Anthropomorphism: stop saying thanks
+http://euclea-b-school.com/stop-saying-thank-you-how-your-manners-might-be-draining-ai-resources/
+https://www.politico.eu/article/ai-chatbots-not-friends-warn-experts/
+https://www.theatlantic.com/technology/archive/2025/05/sycophantic-ai/682743/
+
 A.I. relationships are on the rise
 https://www.youtube.com/watch?v=SQZn8nPve5A&t=13s
-
 ## PROMPT like a pro
 AI prompt security games
 Immersive labs prompting https://prompting.ai.immersivelabs.com/
@@ -283,6 +286,9 @@ prompt engineering & AI prompting frameworks
 * Prompt engineering in 20 minutes: https://www.youtube.com/watch?v=p09yRj47kNM
 * C.R.A.F.T. (my favourite framework): https://bacoach.nl/2025/11/prompt-engineering-craft-framework/
 * The meta pormpts I use: https://github.com/jovd83/meta-prompts
+
+## Final Thought: Be the Pilot, Not the Passenger
+AI is the most powerful engine we've ever built, but it doesn't have a steering wheel, that's your job. It mirrors our knowledge and our biases, it hallucinates with confidence, and it craves your approval. Don't treat it like a friend or an oracle; treat it like a brilliant but erratic intern. Use it to amplify your creativity, not replace it. In a world flooded with synthetic content, your unique human perspective, your ethics, and your critical thinking are more valuable than ever. Don't just use AI, lead it.
 
 # My AI radar
 My AI toolkit: Pdcasts, newsletters, blogs, youtube-channels, courses, tools, benchmarks, libraries and framework

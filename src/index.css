@@ -5,28 +5,37 @@
   --bg-card-hover: rgba(40, 40, 60, 0.8);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-highlight: rgba(255, 255, 255, 0.05);
-  
-  --accent-primary: #8a2be2; /* BlueViolet */
-  --accent-secondary: #00bfff; /* DeepSkyBlue */
+
+  --accent-primary: #8a2be2;
+  /* BlueViolet */
+  --accent-secondary: #00bfff;
+  /* DeepSkyBlue */
   --accent-gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  
+
   --text-main: #ffffff;
   --text-muted: #a0a0b0;
-  
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
-  
+
   /* Radius */
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
-  
+
   /* Animation */
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -36,7 +45,7 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
-  background-image: 
+  background-image:
     radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(0, 191, 255, 0.15) 0%, transparent 40%);
 }
@@ -51,13 +60,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-dark);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #333;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
@@ -67,7 +79,9 @@ body {
   padding: var(--spacing-md) 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0 0 var(--spacing-sm) 0;

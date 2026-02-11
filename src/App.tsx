@@ -261,31 +261,33 @@ const IconDownload = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
 );
 
+
 function Section({ title, intro, data, id }: SectionProps) {
   const [filter, setFilter] = useState('All');
   const [sortOrder, setSortOrder] = useState('Default');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
+  // Collapse state
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  // Initialize collapse state based on viewport width
+  useEffect(() => {
+    const handleResize = () => {
+      // If mobile (< 768px), collapse by default
+      if (window.innerWidth < 768) {
+        setIsCollapsed(true);
+      } else {
+        setIsCollapsed(false);
+      }
+    };
+
+    // Run once on mount
+    handleResize();
+  }, []);
+
   // Derive counts for subcategories
-  // Derive counts for subcategories based on ACTUAL filter logic
   const subcategoryCounts = data.reduce((acc, item) => {
-    // 1. Get subcategories (these are the keys we care about)
     const subs = parseList(item.subcategory);
-
-
-    // We only want to count for "Subcategories" that actually exist as buttons
-    // So we first need to know all possible subcategories.
-    // However, reduce works item by item.
-    // Better approach: First collect all unique subcategories from the data.
-    // Then for each unique sub, count how many items match (sub OR tags).
-
-    // Minimal change: Iterate all subs of this item to build the key list,
-    // BUT we must also respect that other items might match these keys via tags.
-    // This reduce approach is insufficient for the new logic because an item matches a key 
-    // even if the key isn't in its subcategory list (but is in tags).
-
-    // Let's change strategy:
-    // 1. Collect all unique subcategories first.
     subs.forEach(sub => {
       if (!acc[sub]) acc[sub] = 0; // Initialize key
     });
@@ -301,18 +303,15 @@ function Section({ title, intro, data, id }: SectionProps) {
     }).length;
   });
 
-  // Get unique subcategories and sort them
   const subcategories = Object.keys(subcategoryCounts).sort();
   const hasSubcategories = subcategories.length > 0;
 
-  // Filter Logic (Contains Match)
-  // Filter Logic (Contains Match)
+  // Filter Logic
   const filteredData = filter === 'All'
     ? data
     : data.filter(d => {
       const subs = parseList(d.subcategory);
-      const tags = parseList(d.tags || d.Frequency); // Parse tags/Frequency
-      // Match against subcategory OR tags
+      const tags = parseList(d.tags || d.Frequency);
       return subs.includes(filter) || tags.includes(filter);
     });
 
@@ -330,7 +329,6 @@ function Section({ title, intro, data, id }: SectionProps) {
     }
 
     if (sortOrder === 'Vendor') {
-      // Fallback to host if vendor missing (for robustness)
       const vA = (a.vendor || a.host || '').toLowerCase();
       const vB = (b.vendor || b.host || '').toLowerCase();
       const cmp = vA.localeCompare(vB);
@@ -346,10 +344,9 @@ function Section({ title, intro, data, id }: SectionProps) {
       return a.title.localeCompare(b.title);
     }
 
-    return 0; // Default (CSV order)
+    return 0; // Default
   });
 
-  // Handle Export CSV
   const handleExportCSV = () => {
     const csv = Papa.unparse(data);
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -362,67 +359,79 @@ function Section({ title, intro, data, id }: SectionProps) {
     document.body.removeChild(link);
   };
 
-  if (data.length === 0) return null; // Don't render empty sections
+  if (data.length === 0) return null;
 
   return (
     <section id={id} className={`content-section ${id}-section`}>
       <header className="section-header">
         <div style={{ marginBottom: '1rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '0.5rem' }}>
-            <h2 style={{ margin: 0 }}>{title}</h2>
 
-            {/* Controls: Sort + View Mode + Export */}
-            <div className="section-controls" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginLeft: 'auto' }}>
-              <select
-                className="sort-select"
-                value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value)}
-                title="Sort Order"
-              >
-                <option value="Default">Default</option>
-                <option value="A-Z">A-Z</option>
-                <option value="Z-A">Z-A</option>
-                <option value="Subcategory">Subcategory</option>
-                {title === 'Tools' && (
-                  <>
-                    <option value="Vendor">Vendor</option>
-                    <option value="Country">Country</option>
-                  </>
-                )}
-              </select>
+            {/* Title with Toggle */}
+            <h2
+              style={{ margin: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              title={isCollapsed ? "Expand Section" : "Collapse Section"}
+            >
+              {title}
+              <span style={{ fontSize: '1.2rem', transform: isCollapsed ? 'rotate(-90deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease', display: 'inline-block' }}>
+                ▼
+              </span>
+            </h2>
 
-              <button
-                className="toggle-btn"
-                onClick={handleExportCSV}
-                title="Export to CSV"
-              >
-                <IconDownload />
-              </button>
-
-              <div className="view-toggle">
-                <button
-                  className={`toggle-btn ${viewMode === 'grid' ? 'active' : ''}`}
-                  onClick={() => setViewMode('grid')}
-                  title="Grid View"
+            {!isCollapsed && (
+              <div className="section-controls" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginLeft: 'auto' }}>
+                <select
+                  className="sort-select"
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                  title="Sort Order"
                 >
-                  <IconGrid />
-                </button>
+                  <option value="Default">Default</option>
+                  <option value="A-Z">A-Z</option>
+                  <option value="Z-A">Z-A</option>
+                  <option value="Subcategory">Subcategory</option>
+                  {title === 'Tools' && (
+                    <>
+                      <option value="Vendor">Vendor</option>
+                      <option value="Country">Country</option>
+                    </>
+                  )}
+                </select>
+
                 <button
-                  className={`toggle-btn ${viewMode === 'list' ? 'active' : ''}`}
-                  onClick={() => setViewMode('list')}
-                  title="List View"
+                  className="toggle-btn"
+                  onClick={handleExportCSV}
+                  title="Export to CSV"
                 >
-                  <IconList />
+                  <IconDownload />
                 </button>
+
+                <div className="view-toggle">
+                  <button
+                    className={`toggle-btn ${viewMode === 'grid' ? 'active' : ''}`}
+                    onClick={() => setViewMode('grid')}
+                    title="Grid View"
+                  >
+                    <IconGrid />
+                  </button>
+                  <button
+                    className={`toggle-btn ${viewMode === 'list' ? 'active' : ''}`}
+                    onClick={() => setViewMode('list')}
+                    title="List View"
+                  >
+                    <IconList />
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
-          <p className="intro-phrase">{intro}</p>
+
+          {!isCollapsed && <p className="intro-phrase">{intro}</p>}
         </div>
 
-        {(hasSubcategories || filter !== 'All') && (
+        {!isCollapsed && (hasSubcategories || filter !== 'All') && (
           <div className="section-filter-bar">
-            {/* 'All' Button */}
             <button
               className={`filter-pill ${filter === 'All' ? 'active-pill' : ''}`}
               onClick={() => setFilter('All')}
@@ -430,7 +439,6 @@ function Section({ title, intro, data, id }: SectionProps) {
               All ({data.length})
             </button>
 
-            {/* Subcategory Buttons (Keep counts here) */}
             {subcategories.map(sub => (
               <button
                 key={sub}
@@ -441,7 +449,6 @@ function Section({ title, intro, data, id }: SectionProps) {
               </button>
             ))}
 
-            {/* Active Tag Filter Indicator */}
             {filter !== 'All' && !subcategories.includes(filter) && (
               <button
                 className="filter-pill active-pill custom-tag-filter"
@@ -456,19 +463,22 @@ function Section({ title, intro, data, id }: SectionProps) {
         )}
       </header>
 
-      <div className={`scroll-pane ${viewMode === 'list' ? 'list-view' : ''}`}>
-        {sortedData.map((item, idx) => (
-          <Card
-            key={`${title}-${item.title}-${idx}`}
-            item={item}
-            index={idx}
-            onTagClick={setFilter} // Pass filter setter
-          />
-        ))}
-      </div>
+      {!isCollapsed && (
+        <div className={`scroll-pane ${viewMode === 'list' ? 'list-view' : ''}`}>
+          {sortedData.map((item, idx) => (
+            <Card
+              key={`${title}-${item.title}-${idx}`}
+              item={item}
+              index={idx}
+              onTagClick={setFilter}
+            />
+          ))}
+        </div>
+      )}
     </section>
   )
 }
+
 
 function App() {
   const podcasts = useCSVData('podcasts.csv', 'Podcasts');
@@ -556,9 +566,9 @@ function App() {
         {/* @ts-ignore */}
         <site-header></site-header>
         <h1 className="main-title">AI Radar</h1>
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', gap: '2rem', maxWidth: '900px', margin: '0 auto' }}>
-          <img src="/img/thumbs/radar.png" alt="AI Radar" style={{ width: '280px', height: '180px', objectFit: 'cover', borderRadius: 'var(--radius-md)', flexShrink: 0, border: '1px solid var(--glass-border)' }} />
-          <p className="bio" style={{ textAlign: 'left', margin: 0, alignSelf: 'center' }}>
+        <div className="hero-content">
+          <img src="/img/thumbs/radar.png" alt="AI Radar" className="hero-image" />
+          <p className="bio">
             People often ask me where I get my AI information, which models I use, and how I stay current in this fast-moving field. This page is my personal AI radar: not an exhaustive list, but simply the resources and tools that have become part of my daily routine, both in my professional life and for my hobbies. Your mileage may vary, and there are plenty of other great options out there. Consider this a starting point for building your own AI toolkit, shaped by what works for your specific needs and interests.
           </p>
         </div>

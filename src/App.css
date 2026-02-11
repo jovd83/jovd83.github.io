@@ -48,13 +48,26 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+  width: 100%;
 }
 
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  overflow-x: hidden;
 }
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 1rem;
+  }
+}
+
+/* Double safety */
+
 
 /* --- Hero --- */
 .hero {
@@ -71,6 +84,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 600px;
+  max-width: 90vw;
+  /* Responsive width */
   height: 400px;
   background: var(--accent-gradient);
   filter: blur(120px);
@@ -101,6 +116,50 @@ body {
   border: 4px solid rgba(255, 255, 255, 0.1);
 }
 
+.profile-pic.small {
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+}
+
+/* --- Site Header (replaced inline styles) --- */
+.site-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 50;
+  flex-wrap: wrap;
+  /* Allow wrapping on small screens if needed */
+}
+
+.site-header-identity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.site-header-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0.5rem;
+}
+
+.site-header-icons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .main-title {
   font-family: 'Outfit', sans-serif;
   font-weight: 800;
@@ -114,6 +173,56 @@ body {
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+.hero-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Generic Responsive Row (for static pages) */
+.responsive-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.responsive-row.centered {
+  justify-content: center;
+}
+
+.responsive-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.responsive-row img {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1px solid var(--glass-border);
+}
+
+.hero-image {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  /* var(--radius-md) might not be defined in App.css content I see so using 16px */
+  flex-shrink: 0;
+  border: 1px solid var(--glass-border);
+}
+
+.bio {
+  text-align: left;
+  margin: 0;
+  align-self: center;
+}
 
 /* --- Back To Top --- */
 .back-to-top {
@@ -413,13 +522,14 @@ body {
 .scroll-pane {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  /* Reduced from 280px/250px for better fit */
   gap: 1.5rem;
   /* Visual improvement: allow cards to breathe */
   max-height: 800px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0.5rem 1rem 1rem 0.5rem;
-  /* Padding for hover effects */
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  /* Symmetric padding */
   scroll-behavior: smooth;
 }
 
@@ -727,16 +837,87 @@ footer::before {
 /* --- Mobile --- */
 @media (max-width: 768px) {
   .hero {
-    padding: 3rem 0;
+    padding: 3rem 1rem;
   }
 
   .main-title {
     font-size: 2.5rem;
   }
 
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* Optimize Header for Mobile */
+  .site-header-container {
+    gap: 0.5rem;
+  }
+
+  .site-header-title {
+    font-size: 2rem;
+  }
+
+  .profile-pic.small {
+    width: 48px;
+    height: 48px;
+  }
+
+  .main-title {
+    font-size: 2.2rem;
+    /* Reduce main title slightly too */
+  }
+
+  /* Generic Responsive Row Mobile */
+  .responsive-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .responsive-row.reverse {
+    flex-direction: column !important;
+  }
+
+  .responsive-row img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 280/180;
+  }
+
+  .responsive-row p,
+  .responsive-row div {
+    text-align: center !important;
+    width: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 280/180;
+  }
+
+  .bio {
+    text-align: center;
+  }
+
   .sticky-nav {
     margin: 1rem 1rem 2rem;
     width: auto;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-right: 1rem;
+    /* Ensure space for scroll */
+  }
+
+  /* Ensure nav items don't wrap */
+  .nav-list {
+    flex-wrap: nowrap;
+    padding-right: 0.5rem;
   }
 
   .scroll-pane {
@@ -747,6 +928,15 @@ footer::before {
 
   .card-top {
     height: 180px;
+  }
+
+  /* Improve search experience on mobile */
+  .search-container:focus-within {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    z-index: 1100;
   }
 }
 
