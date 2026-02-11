@@ -230,8 +230,8 @@
             background: var(--accent-secondary);
         }
     </style>
-  <script type="module" crossorigin src="/assets/SiteHeader-C9jF2dS7.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/SiteHeader-BgIZgQb6.css">
+  <script type="module" crossorigin src="/assets/SiteHeader-C7PDnbV9.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/SiteHeader-CCB6SSyg.css">
 </head>
 
 <body>
@@ -1257,6 +1257,26 @@
                                 AI is software, not a person. Treating it like a human can lead to emotional attachment
                                 and manipulation.
                             </p>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="http://euclea-b-school.com/stop-saying-thank-you-how-your-manners-might-be-draining-ai-resources/"
+                                        target="_blank">
+                                        Stop Saying Thank You How Your Manners Might Be Draining Ai Resources
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.politico.eu/article/ai-chatbots-not-friends-warn-experts/"
+                                        target="_blank">
+                                        Ai Chatbots Not Friends Warn Experts
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.theatlantic.com/technology/archive/2025/05/sycophantic-ai/682743/"
+                                        target="_blank">
+                                        Sycophantic Ai
+                                    </a>
+                                </li>
+                            </ul>
                             <div class="video-grid">
                                 <a class="video-card" href="https://www.youtube.com/watch?v=SQZn8nPve5A&amp;t=13s"
                                     target="_blank">
@@ -1326,8 +1346,21 @@
                                     <a href="https://github.com/jovd83/meta-prompts" target="_blank">
                                         The meta prompts I use
                                     </a>
-                                </li>
                             </ul>
+                            <h3 class="subsection-title"
+                                style="color: var(--accent-secondary); margin-top: 3rem; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
+                                Final Thought: Be the Pilot, Not the Passenger
+                            </h3>
+                            <p style="font-size: 1.1rem; line-height: 1.7; font-weight: 500; color: var(--text-main);">
+                                AI is the most powerful engine we've ever built, but it doesn't have a steering
+                                wheel, that's your job. It mirrors our knowledge and our biases, it hallucinates with
+                                confidence, and it craves your approval. <br><br>
+                                Don't treat it like a friend or an oracle; treat it like a brilliant but erratic intern.
+                                Use it to amplify your creativity, not replace it. In a world flooded with synthetic
+                                content, your unique human perspective, your ethics, and your critical thinking are more
+                                valuable than ever. <br><br>
+                                <em>Don't just use AI, lead it.</em>
+                            </p>
                         </div>
                         <div class="section-block">
                             <h2 class="section-title">
@@ -1361,23 +1394,155 @@
         ↑
     </a>
 
-    <script>
-        const backToTopButton = document.getElementById('backToTop');
+    <style>
+        /* Collapsible Styles */
+        .section-title {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
+        .section-title:hover {
+            opacity: 0.8;
+        }
+
+        .chevron {
+            transition: transform 0.3s ease;
+            width: 24px;
+            height: 24px;
+            color: var(--accent-primary);
+        }
+
+        .chevron.rotated {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .section-content.collapsed {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
             }
-        });
 
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const isMobile = window.innerWidth < 768;
+            const sections = document.querySelectorAll('.section-block');
+
+            sections.forEach(section => {
+                const header = section.querySelector('h2.section-title');
+                if (!header) return;
+
+                // 1. Create content wrapper
+                const contentWrapper = document.createElement('div');
+                contentWrapper.className = 'section-content';
+
+                // 2. Move all siblings of header into wrapper
+                // Converting childNodes to array to avoid live collection issues during iteration
+                const children = Array.from(section.childNodes);
+                children.forEach(child => {
+                    if (child !== header) {
+                        contentWrapper.appendChild(child);
+                    }
+                });
+                section.appendChild(contentWrapper);
+
+                // 3. Add chevron icon
+                const chevron = document.createElement('div');
+                chevron.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="chevron"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>`;
+                // We append the SVG element directly
+                const chevronSvg = chevron.firstElementChild;
+                header.appendChild(chevronSvg);
+
+                // 4. Toggle Logic
+                let isCollapsed = false;
+
+                // Default to collapsed on mobile
+                if (isMobile) {
+                    isCollapsed = true;
+                }
+
+                const updateState = () => {
+                    if (isCollapsed) {
+                        contentWrapper.classList.add('collapsed');
+                        chevronSvg.classList.remove('rotated'); // Point down implies "click to open" (standard is: down=closed(expandable), up=open(collapsible))
+                        // Wait, usually: 
+                        // V (down) = Expanded content below? Or V = Closed, click to expand?
+                        // Let's check typical behavior.
+                        // Accordion: > (points right) = closed. V (points down) = open.
+                        // Here we utilize a chevron. 
+                        // Let's stick to the AI Radar behavior (if I can recall or infer):
+                        // "rotating chevron icon (▼)".
+                        // Usually ▼ means open. ► means closed.
+                        // But commonly simple rotation: 0deg (V) -> 180deg (^).
+                        // Let's say 0deg (down) = Open. 180deg (up) = Collapsed? 
+                        // user said "minimize them on mobile view".
+                        // Let's assume:
+                        // Default state (Expanded): Chevron points UP (^) or DOWN (V)?
+                        // Let's use:
+                        // Collapsed: Chevron points DOWN (indicating "there is stuff below").
+                        // Expanded: Chevron points UP (indicating "click to pull up/close").
+                        // Let's set the SVGs 'd' to point DOWN by default.
+                        // So:
+                        // If Collapsed: Class 'collapsed' (hidden). Chevron rotation 0 (points down).
+                        // If Expanded: Class '' (visible). Chevron rotation 180 (points up).
+                    } else {
+                        contentWrapper.classList.remove('collapsed');
+                        chevronSvg.classList.add('rotated');
+                    }
+                };
+
+                // Initial State
+                if (isCollapsed) {
+                    contentWrapper.classList.add('collapsed');
+                    // Chevron default is down key, so no rotation needed
+                } else {
+                    contentWrapper.classList.remove('collapsed');
+                    chevronSvg.classList.add('rotated'); // Rotate to point up
+                }
+
+                header.addEventListener('click', () => {
+                    isCollapsed = !isCollapsed;
+                    updateState();
+                });
             });
+
+            // Back to top logic
+            const backToTopButton = document.getElementById('backToTop');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
+                    }
+                });
+
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
         });
     </script>
 </body>
