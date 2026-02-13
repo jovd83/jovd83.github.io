@@ -242,7 +242,28 @@ https://www.youtube.com/watch?v=uoPxg8S5LAg
 * The "Forever" Rule
 * No PII: Never share Personally Identifiable Information (full name + address, passwords, medical info, photos of faces).
 * The "Leak" Risk
-## UNDERSTAND Academic Integrity
+## QUESTION the Output
+
+
+How to spot deepfake images and videos
+https://www.bbc.co.uk/bitesize/articles/z6s4239
+
+AI Image Detector
+https://decopy.ai/ai-image-detector/
+
+Real vs. AI Images
+https://elearn.eb.com/real-vs-ai-images/
+
+## BALANCE AI and Human Skills
+Don't be a waze zombie
+https://www.vrt.be/vrtnws/nl/2025/11/15/word-geen-waze-zombie-eerste-hulp-voor-gebruikers-beheerders-v/
+
+LLMs are people pleasers
+https://hai.stanford.edu/news/large-language-models-just-want-to-be-liked
+
+AI confessions
+https://openai.com/nl-NL/index/how-confessions-can-keep-language-models-honest/
+
 * Don't copy paste
 Telltale words of Ai
 https://arstechnica.com/ai/2024/07/the-telltale-words-that-could-identify-generative-ai-text/
@@ -254,16 +275,6 @@ AI detectors
 * Copylakes: https://copyleaks.com/ (AI-based plagiarism and content detection)
 * ZeroGPT: https://www.zerogpt.com/ (Advanced AI content detector)
 
-## QUESTION the Output
-LLMs are people pleasers
-https://hai.stanford.edu/news/large-language-models-just-want-to-be-liked
-
-AI confessions
-https://openai.com/nl-NL/index/how-confessions-can-keep-language-models-honest/
-
-## BALANCE AI and Human Skills
-Don't be a waze zombie
-https://www.vrt.be/vrtnws/nl/2025/11/15/word-geen-waze-zombie-eerste-hulp-voor-gebruikers-beheerders-v/
 
 ## Always start a NEW CONTEXT window
 What is a cotnext window
