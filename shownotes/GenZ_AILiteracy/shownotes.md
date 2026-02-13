@@ -254,26 +254,29 @@ https://decopy.ai/ai-image-detector/
 Real vs. AI Images
 https://elearn.eb.com/real-vs-ai-images/
 
+SightEngine: AI or Not
+https://sightengine.com/ai-or-not
+
 ## BALANCE AI and Human Skills
-Don't be a waze zombie
-https://www.vrt.be/vrtnws/nl/2025/11/15/word-geen-waze-zombie-eerste-hulp-voor-gebruikers-beheerders-v/
+* Don't be a waze zombie
+    * https://www.vrt.be/vrtnws/nl/2025/11/15/word-geen-waze-zombie-eerste-hulp-voor-gebruikers-beheerders-v/
 
-LLMs are people pleasers
-https://hai.stanford.edu/news/large-language-models-just-want-to-be-liked
+* LLMs are people pleasers
+    * https://hai.stanford.edu/news/large-language-models-just-want-to-be-liked
 
-AI confessions
-https://openai.com/nl-NL/index/how-confessions-can-keep-language-models-honest/
+* AI confessions
+    * https://openai.com/nl-NL/index/how-confessions-can-keep-language-models-honest/
 
 * Don't copy paste
-Telltale words of Ai
-https://arstechnica.com/ai/2024/07/the-telltale-words-that-could-identify-generative-ai-text/
-https://embryo.com/blog/list-words-ai-overuses/
+    * Telltale words of Ai
+        * https://arstechnica.com/ai/2024/07/the-telltale-words-that-could-identify-generative-ai-text/
+        * https://embryo.com/blog/list-words-ai-overuses/
 
-AI detectors
-* Winston AI: https://gowinston.ai/ (AI content detection solution)
-* GPTZero: https://gptzero.me/ (The gold standard in AI detection)
-* Copylakes: https://copyleaks.com/ (AI-based plagiarism and content detection)
-* ZeroGPT: https://www.zerogpt.com/ (Advanced AI content detector)
+* AI detectors
+    * Winston AI: https://gowinston.ai/ (AI content detection solution)
+    * GPTZero: https://gptzero.me/ (The gold standard in AI detection)
+    * Copylakes: https://copyleaks.com/ (AI-based plagiarism and content detection)
+    * ZeroGPT: https://www.zerogpt.com/ (Advanced AI content detector)
 
 
 ## Always start a NEW CONTEXT window
@@ -293,7 +296,6 @@ Immersive labs prompting https://prompting.ai.immersivelabs.com/
 Gandalf https://gandalf.lakera.ai/
 Giskard red https://red.giskard.ai/
 prompt engineering & AI prompting frameworks
-* See the prompt framework in action https://www.youtube.com/watch?v=JEutBY2z45I 
 * Prompt engineering in 20 minutes: https://www.youtube.com/watch?v=p09yRj47kNM
 * C.R.A.F.T. (my favourite framework): https://bacoach.nl/2025/11/prompt-engineering-craft-framework/
 * The meta pormpts I use: https://github.com/jovd83/meta-prompts
