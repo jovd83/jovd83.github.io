@@ -280,8 +280,11 @@ https://sightengine.com/ai-or-not
 
 
 ## Always start a NEW CONTEXT window
-What is a cotnext window
+What is a context window
 https://www.ibm.com/think/topics/context-window
+
+Why LLMs get dumb (Context Windows Explained)
+https://www.youtube.com/watch?v=TeQDr4DkLYo
 
 ## Anthropomorphism: stop saying thanks
 http://euclea-b-school.com/stop-saying-thank-you-how-your-manners-might-be-draining-ai-resources/

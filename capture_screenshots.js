@@ -14,7 +14,7 @@ const TARGETS = [
     {
         csvPath: path.join(__dirname, 'public', 'data', 'tools.csv'),
         imgDir: path.join(__dirname, 'public', 'img', 'tools'),
-        baseUrl: '/jovd83_github_page/img/tools/',
+        baseUrl: '/img/tools/',
         urlField: 'Website URL',
         fallbackUrlFields: ['Link', 'link_primary'],
         titleField: 'Title'
@@ -22,7 +22,7 @@ const TARGETS = [
     {
         csvPath: path.join(__dirname, 'public', 'data', 'blogs.csv'),
         imgDir: path.join(__dirname, 'public', 'img', 'blogs'),
-        baseUrl: '/jovd83_github_page/img/blogs/',
+        baseUrl: '/img/blogs/',
         urlField: 'link_primary',
         fallbackUrlFields: ['Link', 'Website URL'],
         titleField: 'title'
@@ -30,7 +30,7 @@ const TARGETS = [
     {
         csvPath: path.join(__dirname, 'public', 'data', 'benchmarks.csv'),
         imgDir: path.join(__dirname, 'public', 'img', 'benchmarks'),
-        baseUrl: '/jovd83_github_page/img/benchmarks/',
+        baseUrl: '/img/benchmarks/',
         urlField: 'link_primary',
         fallbackUrlFields: ['Link', 'Website URL'],
         titleField: 'title'
@@ -38,7 +38,7 @@ const TARGETS = [
     {
         csvPath: path.join(__dirname, 'public', 'data', 'prompt_frameworks.csv'),
         imgDir: path.join(__dirname, 'public', 'img', 'prompt_frameworks'),
-        baseUrl: '/jovd83_github_page/img/prompt_frameworks/',
+        baseUrl: '/img/prompt_frameworks/',
         urlField: 'URL to explanation',
         fallbackUrlFields: ['Link', 'Website URL'],
         titleField: 'Name'
@@ -46,7 +46,7 @@ const TARGETS = [
     {
         csvPath: path.join(__dirname, 'public', 'data', 'extratools.csv'),
         imgDir: path.join(__dirname, 'public', 'img', 'extratools'),
-        baseUrl: '/jovd83_github_page/img/extratools/',
+        baseUrl: '/img/extratools/',
         urlField: 'Website URL',
         fallbackUrlFields: ['Link', 'link_primary'],
         titleField: 'Title'
