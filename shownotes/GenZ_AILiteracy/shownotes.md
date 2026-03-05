@@ -50,18 +50,33 @@ https://en.wikipedia.org/wiki/Artificial_general_intelligence
 * AI Hypercomputer: Behind the scenes at a Google Cloud data center
 https://www.youtube.com/watch?v=XIyTs2Rr0sE
 
+massive demand for hardware
+* https://www.cnbc.com/2026/01/10/micron-ai-memory-shortage-hbm-nvidia-samsung.html
+* https://www.tomshardware.com/pc-components/hdds/western-digital-is-already-sold-out-of-hard-drives-for-all-of-2026-chief-says-some-long-term-agreements-for-2027-and-2028-already-in-place
+* https://www.nytimes.com/2026/01/29/technology/ai-memory-chips-pc-smartphone.html
+* https://www.vrt.be/vrtnws/nl/2026/02/03/amerika-datacenter-protest-elektriciteit-gezondheid/
+
+
 ## Ecology
 Electricity https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai
 rebooting nuclear facilities for AI: https://www.youtube.com/watch?v=5COwOnn05qY
 Water https://www.eesi.org/articles/view/data-centers-and-water-consumption
+* https://www.cnbc.com/2025/11/26/ai-data-center-frenzy-is-pushing-up-your-electric-bill-heres-why.html
+* https://www.anthropic.com/news/covering-electricity-price-increases
+
 
 ## Money
 https://futurism.com/the-byte/chatgpt-costs-openai-every-day
 https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models
+https://longyield.substack.com/p/openais-830-billion-question-can 
+
 
 ## Training data
 Inside China’s Robot Training Factory: Where Humanoids Learn to Work
 https://www.youtube.com/watch?v=7ZoIhsKQZFA
+* https://www.techradar.com/news/captcha-if-you-can-how-youve-been-training-ai-for-years-without-realising-it
+* https://qhalahq.medium.com/data-workers-in-ai-a-new-frontier-of-labour-exploitation-in-the-global-south-362e22eae01b
+
 
 ## Trainig a model
 The labubu model
@@ -75,6 +90,10 @@ https://www.youtube.com/watch?v=o_3mboe1jYI
 
 Resnet explained with Math
 https://www.youtube.com/watch?v=w1UsKanMatM
+
+Intuitive Convolution
+https://betterexplained.com/articles/intuitive-convolution/ 
+
 
 Learn how to train your own model:
 https://course.fast.ai/Lessons/lesson2.html
@@ -277,6 +296,7 @@ https://sightengine.com/ai-or-not
     * GPTZero: https://gptzero.me/ (The gold standard in AI detection)
     * Copylakes: https://copyleaks.com/ (AI-based plagiarism and content detection)
     * ZeroGPT: https://www.zerogpt.com/ (Advanced AI content detector)
+* https://stackoverflow.blog/2025/12/23/the-ai-ick/
 
 
 ## Always start a NEW CONTEXT window
