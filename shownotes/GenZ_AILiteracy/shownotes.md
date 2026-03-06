@@ -56,11 +56,29 @@ massive demand for hardware
 * https://www.nytimes.com/2026/01/29/technology/ai-memory-chips-pc-smartphone.html
 * https://www.vrt.be/vrtnws/nl/2026/02/03/amerika-datacenter-protest-elektriciteit-gezondheid/
 
+Real Reason RAM Prices Are Skyrocketing (and Getting Worse)
+https://www.youtube.com/watch?v=w1qDQdyN3tQ
+
+Latest Victims of the Global RAM Shortage
+https://www.youtube.com/watch?v=U_MIwgpvihk
+
+The RAM Crisis Keeps Getting Worse
+https://www.youtube.com/watch?v=-YNk9_e4pg4
 
 ## Ecology
 Electricity https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai
+
 rebooting nuclear facilities for AI: https://www.youtube.com/watch?v=5COwOnn05qY
+
+How The Massive Power Draw Of Generative AI Is Overtaxing Our Grid
+https://www.youtube.com/watch?v=MJQIQJYxey4
+
+
 Water https://www.eesi.org/articles/view/data-centers-and-water-consumption
+
+How AI uses our drinking water - BBC World Service
+https://www.youtube.com/watch?v=b0C56yqIkbk
+
 * https://www.cnbc.com/2025/11/26/ai-data-center-frenzy-is-pushing-up-your-electric-bill-heres-why.html
 * https://www.anthropic.com/news/covering-electricity-price-increases
 
@@ -76,6 +94,9 @@ Inside China’s Robot Training Factory: Where Humanoids Learn to Work
 https://www.youtube.com/watch?v=7ZoIhsKQZFA
 * https://www.techradar.com/news/captcha-if-you-can-how-youve-been-training-ai-for-years-without-realising-it
 * https://qhalahq.medium.com/data-workers-in-ai-a-new-frontier-of-labour-exploitation-in-the-global-south-362e22eae01b
+
+Training AI takes heavy toll on Kenyans working for $2 an hour | 60 Minutes
+https://www.youtube.com/watch?v=qZS50KXjAX0
 
 
 ## Trainig a model
