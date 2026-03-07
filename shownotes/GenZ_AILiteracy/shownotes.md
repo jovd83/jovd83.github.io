@@ -51,6 +51,7 @@ https://en.wikipedia.org/wiki/Artificial_general_intelligence
 https://www.youtube.com/watch?v=XIyTs2Rr0sE
 
 massive demand for hardware
+* https://www.forbes.com/sites/jimosman/2024/11/07/can-nvidias-hyper-moores-law-spark-an-ai-revolution/
 * https://www.cnbc.com/2026/01/10/micron-ai-memory-shortage-hbm-nvidia-samsung.html
 * https://www.tomshardware.com/pc-components/hdds/western-digital-is-already-sold-out-of-hard-drives-for-all-of-2026-chief-says-some-long-term-agreements-for-2027-and-2028-already-in-place
 * https://www.nytimes.com/2026/01/29/technology/ai-memory-chips-pc-smartphone.html
