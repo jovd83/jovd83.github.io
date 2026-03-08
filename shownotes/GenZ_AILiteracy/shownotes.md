@@ -35,6 +35,7 @@ what is [AI Literacy](https://en.wikipedia.org/wiki/AI_literacy) : A foundationa
 
 ##Who's behind AI
 [Person of the Year 2025: AI Architects](https://time.com/7339685/person-of-the-year-2025-ai-architects/) : Time's profile on the key figures building the future of AI.
+[VRT NWS: De 'AI-architecten' zijn Time's Person of the Year](https://www.vrt.be/vrtnws/nl/2025/12/11/time-person-of-the-year/) : Local report on the leaders behind the AI revolution.
 [Top 10 AI Companies 2025](https://aimagazine.com/top10/top-10-ai-companies-2025) : A list of the most influential corporations in the current AI landscape.
 
 ##It's only the beginning
