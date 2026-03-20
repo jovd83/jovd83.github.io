@@ -66,3 +66,6 @@
 "Claude Code","Agentic coding tool by Anthropic","CLI and codebase understanding","[IDE, agents, CLI, coding]","[Coding, Agents]","/img/tools/claude_code.png","Anthropic","USA","https://claude.com/product/claude-code"
 "Claude Cowork","A collaborative AI teammate by Anthropic","Pair programming, brainstorming, collaborative work","[Assistant, Agents, coding]","[Coding, Agents]","/img/tools/claude_cowork.png","Anthropic","USA","https://claude.com/product/cowork"
 "OpenClaw","Open source AI tool for fast productivity","Productivity enhancer and daily tasks","[Productivity, Assistant, Automation]","[Productivity]","/img/tools/openclaw.png","OpenClaw","USA","https://openclaw.ai/"
+"Wispr Flow","Flow makes writing quick and clear with seamless voice dictation.","Voice dictation, voice typing","[Productivity, Voice]","[Productivity]","/img/tools/wispr_flow.png","Wispr","USA","https://wisprflow.ai/"
+"AgentSkills","Empowering Agentic Coding Workflows.","Building agent skills, coding workflows","[Agents, Coding]","[Coding, Agents]","/img/tools/agentskills.png","AgentSkills","Global","https://agentskills.io/"
+"Google Stitch","AI-powered web prototyping visually","Prototyping, UI design, coding","[Coding, Design]","[Design, Coding]","/img/tools/google_stitch.png","Google","USA","https://stitch.withgoogle.com/"
