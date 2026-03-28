@@ -82,16 +82,23 @@ massive demand for hardware
 * [AI data center frenzy is pushing up your electric bill](https://www.cnbc.com/2025/11/26/ai-data-center-frenzy-is-pushing-up-your-electric-bill-heres-why.html) (source: CNBC) : Why residential energy prices are rising alongside AI demand.
 * [Covering electricity price increases](https://www.anthropic.com/news/covering-electricity-price-increases) (source: Anthropic) : Anthropic's perspective on rising energy costs.
 
+### Energy and power consumption
+[Every Sora AI video burns 1 kilowatt](https://reclaimedsystems.substack.com/p/every-sora-ai-video-burns-1-kilowatt) (source: Reclaimed Systems) : An examination of the environmental cost and power consumption per generated video.
+[Data centers turn to ex-airliner engines as AI power crunch bites](https://www.tomshardware.com/tech-industry/data-centers-turn-to-ex-airliner-engines-as-ai-power-crunch-bites) (source: Tom's Hardware) : How extreme power demands are forcing data centers to repurpose old airplane engines.
 
 ## Money
 [The cost of ChatGPT: $700,000 every day?](https://futurism.com/the-byte/chatgpt-costs-openai-every-day) (source: Futurism) : Estimating the eye-watering daily operational costs of large models.
 [How much does it cost to train frontier AI models?](https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models) (source: Epoch AI) : Analysis of the capital required to build next-gen intelligence.
 [OpenAI's $830 billion question: Can AI be profitable?](https://longyield.substack.com/p/openais-830-billion-question-can) (source: Long Yield) : Questioning the long-term economic sustainability of the AI boom.
+[OpenAI spending on AI-generated Sora videos](https://www.forbes.com/sites/phoebeliu/2025/11/10/openai-spending-ai-generated-sora-videos/) (source: Forbes) : A look into the financial investments required for OpenAI's Sora video generation.
+[OpenAI financials and metrics](https://sacra.com/c/openai/) (source: Sacra) : Financial analysis and metrics of OpenAI's business model.
+[AI's Power Demand: Calculating ChatGPT's Electricity Consumption](https://www.bestbrokers.com/forex-brokers/ais-power-demand-calculating-chatgpts-electricity-consumption-for-handling-over-78-billion-user-queries-every-year/) (source: BestBrokers) : An analysis of the electricity consumption and costs associated with ChatGPT's operations.
 
 
 ## Training data
 [Inside China’s Robot Training Factory](https://www.youtube.com/watch?v=7ZoIhsKQZFA) (source: YouTube) : A glimpse into the human labor behind robot learning.
 * [How You've Been Training AI for Years Without Realising It](https://www.techradar.com/news/captcha-if-you-can-how-youve-been-training-ai-for-years-without-realising-it) (source: TechRadar) : How CAPTCHAs use your clicks to label datasets.
+* [How Pokemon GO is helping robots deliver pizza on time](https://www.technologyreview.com/2026/03/10/1134099/how-pokemon-go-is-helping-robots-deliver-pizza-on-time/) (source: Technology Review) : How game data and tracking might be aiding autonomous delivery systems.
 * [Data workers in AI: A new frontier of labour exploitation](https://qhalahq.medium.com/data-workers-in-ai-a-new-frontier-of-labour-exploitation-in-the-global-south-362e22eae01b) (source: Medium) : The ethical issues surrounding cheap labor in the data supply chain.
 
 [Training AI takes heavy toll on Kenyans working for $2 an hour](https://www.youtube.com/watch?v=qZS50KXjAX0) (source: DW Shift) : Investigative report on the human cost of content moderation and labeling.
@@ -206,6 +213,7 @@ A misunderstanding of a prompt occurs when the AI interprets a query in a way no
 
 [The grandma exploit](https://in.ign.com/tech/182742/news/ai-grandma-exploit-used-to-fool-the-system) (source: IGN) : A famous social engineering trick used to get AI to break its rules.
 
+[AI chatbots versus poëzie: schadelijk?](https://www.vrt.be/vrtnws/nl/2025/11/29/ai-chatbots-versus-poezie-schadelijk/) (source: VRT NWS) : Discussing the potential harmful effects of AI chatbots being jailbroken with poetry.
 
 ## AI Slop
 [What is AI slop?](https://en.wikipedia.org/wiki/AI_slop) (source: Wikipedia) : Low-quality, AI-generated content flooding the internet.
