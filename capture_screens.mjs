@@ -9,7 +9,8 @@ const urls = [
     { url: 'https://agentskills.io/', path: 'public/img/tools/agentskills.png' },
     { url: 'https://stitch.withgoogle.com/', path: 'public/img/tools/google_stitch.png' },
     { url: 'https://github.com/vercel-labs/skills', path: 'public/img/libraries/npx_skills.png' },
-    { url: 'https://github.com/agentskills/agentskills', path: 'public/img/libraries/agentskills_lib.png' }
+    { url: 'https://github.com/agentskills/agentskills', path: 'public/img/libraries/agentskills_lib.png' },
+    { url: 'https://arcprize.org/arc-agi/3', path: 'public/img/benchmarks/arc_agi_3.png' }
 ];
 
 (async () => {
